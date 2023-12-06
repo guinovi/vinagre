@@ -1,6 +1,8 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    font-family: 'Josefin Slab', serif;
 }
 
 .display-none{
@@ -8,22 +10,54 @@
 }
 
 body{
-    background-color: rgba(27, 27, 27, 0.401);
+    background-color: rgb(255, 227, 225);
 }
 
-/* //CONTENIDO */
-.contein-all{
-    height: 90%;
-    width: 90%;
-    margin: 0 auto;
+/* ========================= 
+        HEADER 
+========================= */
+.nav-main{
+    border-bottom: solid 1px;
+    background-color: #527853;
+    width: 100%;
+}
+/* title y logo */
+.title-secction{
+    display: flex;
+    margin-left: calc(100vw - 70vw);
+    padding-top: 1%;
+}
+.title-secction .title{
+    padding-top: 2%;
+    font-family: 'Josefin Slab', serif;
+    text-align: center;
+    font-size: 3em;
+}
+.title-secction .logo-img{
+    max-width: 70px;
+    max-height: 70px;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+/* nav */
+.list-main{
+    padding: 1% 0%;
+    background-color: #F9E8D9
+}
 
+
+/* ========================= 
+        CONTENIDO 
+========================= */
+.contein-all{
+    margin: 0 auto;
+    width: 95vw;
 }
 .ul{
     display: flex;
     justify-content: space-around;
-    /* align-items: center; */
     list-style: none;
-    font-size: 1.3em;
+    font-size: 1.5rem;
 }
 
 .ul a:link, a:visited, a:active {
@@ -31,48 +65,95 @@ body{
     color: black;
 }
 
-/* nav-main  */
-.nav-main{
-    background-color: rgb(25, 25, 25);
+
+/* =========================
+        INDEX
+========================= */
+/* slide */
+.slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    border-right: solid 1px;
 }
-.list-main{
-    padding: 1% 0%;
+.slider ul {
+    display: flex;
+    padding: 0;
+    width: 300%;
+    animation: cambio 20s infinite alternate linear;
+}
+.slider li {
+    list-style: none;
+    max-height: 300px;
+    width: 100%;
+}
+.slider img {
+    height: auto;
+    width: 100%;
+}
+@keyframes cambio {
+    0% {margin-left: 0;}
+    20% {margin-left: 0;}
+    
+    40% {margin-left: -100%;}
+    60% {margin-left: -100%;}
+    
+    80% {margin-left: -200%;}
+    100% {margin-left: -200%;}
+
 }
 
-.title{
-    text-align: center;
-    font-size: 3em;
+/*3 Icons*/
+.tres-icons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 0.8em;
+}
+.tres-icons hr{
+    border-color: black;
+}
+.tres-icons img{
+    margin-top: 1px;
+    max-width: 50px;
+}
+.tres-icons li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+/*========================= 
+        FOOTER 
+================================*/
 
-/* nav vinos  */
+
+  
+/* ========================= 
+        SHOP 
+=========================*/
+/* nav vinos */
 .nav-wins{
-   background-color: rgb(115, 95, 50);
+    background-color: rgb(115, 95, 50);
 }
-
 .list-wins{
     border-radius: 15%;
     padding: 1% 0%;
 }
-
-
-
-
-/* //DATA API */
+/* Contein */
 .contein-primary{
-    /* background-color: rgb(115, 95, 50); */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     gap: 1em;
 }
-
-
-/* //LOADING  */
+/* LOADING  */
 .loadin{
     text-align: center;
     margin-top: 10%;
 }
-
 .loadin-obj{
     width: 48px;
     height: 48px;
@@ -83,7 +164,6 @@ body{
     box-sizing: border-box;
     animation: rotacion 1s linear infinite;
 }
-    
 @keyframes rotacion {
 0% {
     transform: rotate(0deg);
@@ -92,8 +172,6 @@ body{
     transform: rotate(360deg);
 }
 }
-
-
 /* TEMPLATE  */
 .card-contein{
     border: 1px solid;
@@ -105,3 +183,6 @@ body{
     max-height: 300px;
     min-height: 250px;
 }
+
+
+
