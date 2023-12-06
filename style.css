@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.display-none{
+    display: none;
+}
+
+body{
+    background-color: rgba(27, 27, 27, 0.401);
+}
+
+/* //CONTENIDO */
+.contein-all{
+    height: 90%;
+    width: 90%;
+    margin: 0 auto;
+
+}
+.ul{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    list-style: none;
+    font-size: 1.3em;
+}
+
+.ul a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
+}
+
+/* nav-main  */
+.nav-main{
+    background-color: rgb(25, 25, 25);
+}
+.list-main{
+    padding: 1% 0%;
+}
+
+.title{
+    text-align: center;
+    font-size: 3em;
+}
+
+
+/* nav vinos  */
+.nav-wins{
+   background-color: rgb(115, 95, 50);
+}
+
+.list-wins{
+    border-radius: 15%;
+    padding: 1% 0%;
+}
+
+
+
+
+/* //DATA API */
+.contein-primary{
+    /* background-color: rgb(115, 95, 50); */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1em;
+}
+
+
+/* //LOADING  */
+.loadin{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.loadin-obj{
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotacion 1s linear infinite;
+}
+    
+@keyframes rotacion {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+
+/* TEMPLATE  */
+.card-contein{
+    border: 1px solid;
+    border-radius: 10%;
+    text-align: center;
+    min-height: 390px;
+}
+.img-card{
+    max-height: 300px;
+    min-height: 250px;
+}
