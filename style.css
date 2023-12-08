@@ -18,31 +18,42 @@ body{
     background-color: rgb(255, 227, 225);
 }
 
+.no-link a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
+    list-style: none;
+}
+
 /* ========================= 
         HEADER 
 ========================= */
-.nav-main{
+.header{
     border-bottom: solid 1px;
     background-color: #637E76;
     width: 100%;
 }
 /* title y logo */
-.title-secction{
+.header .title-secction{
+    /* display: flex; */
+    /* margin-left: calc(100vw - 50vw); */
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
-    margin-left: calc(100vw - 70vw);
-    padding-top: 1%;
+    justify-content: center;
 }
-.title-secction .title{
+.header .title-secction .title{
     padding-top: 2%;
     font-family: 'Josefin Slab', serif;
     text-align: center;
     font-size: 3em;
+    display: inline;
 }
-.title-secction .logo-img{
+.header .title-secction .logo-img{
     max-width: 70px;
     max-height: 70px;
     opacity: 0.8;
     border-radius: 50%;
+    display: inline;
 }
 /* nav */
 .list-main{
@@ -72,6 +83,10 @@ body{
 /* =========================
         INDEX
 ========================= */
+.index-contein{
+    margin-bottom: 15px;
+}
+
 /* slide */
 .slider {
     width: 100%;
@@ -111,37 +126,69 @@ body{
 }
 
 /*3 Icons*/
-.tres-icons{
-    margin-top: 10px;
+.contein-all .tres-icons{
+    margin: 10px;
     display: flex;
     justify-content: space-around;
     list-style: none;
     font-size: 0.8em;
 }
-.tres-icons hr{
+.contein-all .tres-icons hr{
     border-color: black;
 }
-.tres-icons img{
+.contein-all .tres-icons img{
     margin-top: 1px;
     max-width: 50px;
 }
-.tres-icons li{
+.contein-all .tres-icons li{
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
+/* index-shop */
+
+.index-shop .btn-shop-index{
+    display: flex;
+    justify-content: center;
+}
+.index-shop .btn-shop-index a{
+    display: inline;
+    border: solid 2px;
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.index-shop .slider-shop{
+    margin: 20px 0;
+    max-height: 50vh;
+    overflow: auto;
+}
+
+
 
 /*========================= 
         FOOTER 
 ================================*/
 .footer{
     height: 20%;
-    background-color: #FFEFE8;
-    display: flex;
-    flex-direction: row;
+    background-color: #C69774;
 }
 
-.footer .fa{
+.footer-contein{
+    width: 95vw;
+    margin: 0 auto;
+}
+
+.footer-left .derechos{
+    margin-top: 15px;
+}
+
+.footer-right {
+    display: inline;
+}
+
+.footer-right .fa{
     max-width: 30px;
     max-height: 30px;
 }

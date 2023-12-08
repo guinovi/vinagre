@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- header  -->
-    <header id="navMain" class="nav-main">
+    <header id="navMain" class="header">
         <div class="title-secction">
             <img src="./app/media/img/logo.png" alt="logo" class="logo-img">
             <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
@@ -30,22 +30,22 @@
     
     <!-- contenido  -->
     <main class="contein contein-all" id="conteinAll">
-        <section class="contein index-contein">
+        <section class="index-contein">  
             
             <div class="contein slider slider-contein">
                 <ul>
                     <li class="slider-img">
-                        <img src="./app/media/img/sli1.jpg" alt="">                
+                        <img src="./app/media/img/sli1.jpg" alt="imagen">                
                     </li>              
                     <li>                    
-                        <img src="./app/media/img/slide2.jpg" alt="">
+                        <img src="./app/media/img/slide2.jpg" alt="imagen">
                     </li>
                     <li>
-                        <img src="./app/media/img/sli.png" alt="">
+                        <img src="./app/media/img/sli.png" alt="imagen">
                     </li>
                 </ul>
             </div>
-
+            
             <div class="contein tres-icons">
                 <li>
                     <img src="./app/media/img/entrega.png" alt="imagen envios" class="img-icons">
@@ -63,36 +63,86 @@
                 </li>
 
             </div>
+            
 
+
+            <div class="contein index-shop">
+                <div class="btn-shop-index no-link"><a class="" href="">SHOP ONLINE</a></div>
+                <nav class="slider-shop">
+                    <!-- reds (tintos), whites (blancos), sparkling (espumantes), rose (rosados), dessert (postre) y port (Oporto),  -->
+                    <div id="navWines" class="nav-wins">
+                        <ul class="ul list-wins">
+                            <li><a id="reds" href="#reds">Tintos</a></li>
+                            <li><a id="whites" href="#whites">Blancos</a></li>
+                            <li><a id="sparkling" href="#espumantes">Espumantes</a></li>
+                            <li><a id="rose" href="#rosados">Rosados</a></li>
+                            <li><a id="dessert" href="#postre">Postre</a></li>
+                            <li><a id="port" href="#oporto">Oporto</a></li>
+                        </ul>
+
+                        <!-- loadin  -->
+                        <section class="loadin display-none" id="loading" >
+                            <h1>Cargando...</h1>
+                            <div class="loadin-obj"></div>
+                        </section>
+                    
+                        <!-- DATA API -->
+                        <section class="contein contein-primary" id="conteinPrimary">
+                        </section>
+                
+                    </div>  
+                </nav>
+            </div>
+
+            
 
 
         </section>
-       
     </main>
 
     <!-- FOOTER  -->
     <footer class="footer">
-        <div class="footer-left flex-column">
-            <nav class="footer-links flex-column">
-                <a class="" href="#">Inicio</a>
-                <a href="#">Shop</a>
-                <a href="#">Servicios</a>
-                <a href="#">Contacto</a>
-            </nav>
-            <p>La Vinagreta! &copy; 2015</p>
-        </div>
+        <section class="footer-contein">
+            <div class="footer-left flex-column">
+                <nav class="footer-links flex-column no-link">
+                    <a class="" href="#">Inicio</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Contacto</a>
+                </nav>
+                <p class="derechos">La Vinagreta! &copy; 2015 | Todos los derechos reservados.</p>
+            </div>
 
-        <div class="footer-center flex-column">
-            Centro
-        </div>
+            <div class="footer-center flex-column">
+                Centro
+            </div>
 
-        <div class="footer-right flex-column">
-            <a href="#"><link rel="shortcut icon" href="./app/media/img/instagram.png" type="image/x-icon" class="fa"></a>
-            <a href="#"><link rel="shortcut icon" href="./app/media/img/whatsapp.png" type="image/x-icon" class="fa"></a>
-            <a href="#"><link rel="shortcut icon" href="./app/media/img/youtube.png" type="image/x-icon" class="fa"></a>
-            <a href="#"><link rel="shortcut icon" href="./app/media/img/github.png" type="image/x-icon" class="fa"></a>
-        </div>
+            <div class="footer-right flex-column">
+                <a href="#"><img rel="shortcut icon" src="./app/media/img/instagram.png" type="image/x-icon" class="fa"></a>
+                <a href="#"><img rel="shortcut icon" src="./app/media/img/whatsapp.png" type="image/x-icon" class="fa"></a>
+                <a href="#"><img rel="shortcut icon" src="./app/media/img/youtube.png" type="image/x-icon" class="fa"></a>
+                <a href="#"><img rel="shortcut icon" src="./app/media/img/github.png" type="image/x-icon" class="fa"></a>
+            </div>
+        </section>
     </footer>
 
+    <!-- TEMPLATE -->
+    <template id="template">
+        <div id="cardPrimary" class="card card-contein contein">
+            <img id="cardImg" class="img img-card" src="" alt="imagen">
+            <h4 id="cardTitle" class="title title-card"></h4>
+            <h5 id="cardVineria" class="title title-vineria"></h5>
+            <p id="cardFrom" class="card-from"></p>
+            <p id="cardRating" class="card-point"></p>
+        </div>
+
+
+    </template>
+    
+
+
+    <script src="./app.js"></script>
+
 </body>
+
 </html>
