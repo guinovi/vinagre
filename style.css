@@ -146,11 +146,12 @@ body{
     gap: 10px;
 }
 
-/* index-shop */
+/* index-shop btn */
 
 .index-shop .btn-shop-index{
     display: flex;
     justify-content: center;
+    margin: 15px auto;
 }
 .index-shop .btn-shop-index a{
     display: inline;
@@ -159,11 +160,91 @@ body{
     padding: 10px;
 }
 
-.index-shop .slider-shop{
-    margin: 20px 0;
-    max-height: 50vh;
-    overflow: auto;
+
+/* index-shop CARRUSEL */
+.index-shop .carrusel{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* flex-direction: row; */
+    /* height: 450px; */
+    /* margin: 15px auto; */
 }
+
+.index-shop .carrusel .card-contein{
+    height: 400px;
+    width: 300px;
+    flex: 1 0 auto;
+}
+
+
+/* .carrucel .card-contein{
+    flex: 1 0 auto;
+    margin: 0 50px;
+    background-color: #C69774;
+    width: 300px;
+    height: 400px; 
+} */
+
+.index-shop .loadin{
+    text-align: center;
+    margin-top: 3%;
+}
+.index-shop .loadin-obj{
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotacion 1s linear infinite;
+}
+
+  
+/* ========================= 
+        SHOP 
+=========================*/
+/* nav vinos */
+.slider-shop .nav-wins{
+    background-color: rgb(115, 95, 50);
+}
+.slider-shop .list-wins{
+    border-radius: 15%;
+    padding: 1% 0%;
+}
+/* Contein */
+.slider-shop .contein-primary{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1em;
+}
+/* LOADING  */
+.slider-shop .loadin{
+    text-align: center;
+    margin-top: 10%;
+}
+.slider-shop .loadin-obj{
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotacion 1s linear infinite;
+}
+@keyframes rotacion {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+
 
 
 
@@ -193,58 +274,19 @@ body{
     max-height: 30px;
 }
 
-  
+
+
+
 /* ========================= 
-        SHOP 
+        TEMPLATE 
 =========================*/
-/* nav vinos */
-.nav-wins{
-    background-color: rgb(115, 95, 50);
-}
-.list-wins{
-    border-radius: 15%;
-    padding: 1% 0%;
-}
-/* Contein */
-.contein-primary{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    gap: 1em;
-}
-/* LOADING  */
-.loadin{
-    text-align: center;
-    margin-top: 10%;
-}
-.loadin-obj{
-    width: 48px;
-    height: 48px;
-    border: 5px solid;
-    border-color: #FF3D00 transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotacion 1s linear infinite;
-}
-@keyframes rotacion {
-0% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(360deg);
-}
-}
-/* TEMPLATE  */
 .card-contein{
     border: 1px solid;
-    border-radius: 10%;
     text-align: center;
-    min-height: 390px;
+    /* border-radius: 10%; */
+    /* min-height: 390px; */
 }
 .img-card{
     max-height: 300px;
     min-height: 250px;
 }
-
-
-
