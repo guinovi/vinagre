@@ -24,36 +24,46 @@ const fetchData = async(apiUrl) =>{
 }
 
 
+
+
 // DATA -->api
 const datos = (data) => {
     const template = document.getElementById("template").content;
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
+    // Verifica si el ancho de la imagen
+    function getImageWidth(imageUrl) {
+        const img = new Image();
+        img.src = imageUrl;
+        return img.width;
+    }
 
     data.forEach(element => {
         const point = element.rating.average;
         const clone = template.cloneNode(true);
         const cloneDos = template.cloneNode(true);
-        // clon
-        clone.getElementById('cardImg').setAttribute("src", element.image);
-        clone.getElementById('cardTitle').textContent = element.wine;
-        clone.getElementById('cardVineria').textContent = element.winery;
-        clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-        clone.getElementById('cardRating').textContent = `Rating: ${point}`;
-        // Clon 2 --> carrucel
-        cloneDos.getElementById('cardImg').setAttribute("src", element.image);
-        cloneDos.getElementById('cardTitle').textContent = element.wine;
-        cloneDos.getElementById('cardVineria').textContent = element.winery;
-        cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-        cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-        //
-        fragment.appendChild(clone);
-        fragmentDos.appendChild(cloneDos);
+        const imgWidth = getImageWidth(element.image);
+        if (imgWidth >= 60 && imgWidth <= 100) {
+            // Clon Shop
+            clone.getElementById('cardImg').setAttribute("src", element.image);
+            clone.getElementById('cardTitle').textContent = element.wine;
+            clone.getElementById('cardVineria').textContent = element.winery;
+            clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+            clone.getElementById('cardRating').textContent = `Rating: ${point}`;
+            // CLON CARRUSEL
+            cloneDos.getElementById('cardImg').setAttribute("src", element.image);
+            cloneDos.getElementById('cardTitle').textContent = element.wine;
+            cloneDos.getElementById('cardVineria').textContent = element.winery;
+            cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+            cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
+            // Fragment
+            fragment.appendChild(clone);
+            fragmentDos.appendChild(cloneDos);
+        }
     });
-
     conteinPrimary.appendChild(fragment);
     carrucel.appendChild(fragmentDos);
-}  
+}
 
 //Cargando....  
 const loading = (estado) =>{
