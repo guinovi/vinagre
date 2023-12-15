@@ -18,31 +18,42 @@ body{
     background-color: rgb(255, 227, 225);
 }
 
+.no-link a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
+    list-style: none;
+}
+
 /* ========================= 
         HEADER 
 ========================= */
-.nav-main{
+.header{
     border-bottom: solid 1px;
     background-color: #637E76;
     width: 100%;
 }
 /* title y logo */
-.title-secction{
+.header .title-secction{
+    /* display: flex; */
+    /* margin-left: calc(100vw - 50vw); */
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
-    margin-left: calc(100vw - 70vw);
-    padding-top: 1%;
+    justify-content: center;
 }
-.title-secction .title{
+.header .title-secction .title{
     padding-top: 2%;
     font-family: 'Josefin Slab', serif;
     text-align: center;
     font-size: 3em;
+    display: inline;
 }
-.title-secction .logo-img{
+.header .title-secction .logo-img{
     max-width: 70px;
     max-height: 70px;
     opacity: 0.8;
     border-radius: 50%;
+    display: inline;
 }
 /* nav */
 .list-main{
@@ -72,6 +83,10 @@ body{
 /* =========================
         INDEX
 ========================= */
+.index-contein{
+    margin-bottom: 15px;
+}
+
 /* slide */
 .slider {
     width: 100%;
@@ -111,39 +126,81 @@ body{
 }
 
 /*3 Icons*/
-.tres-icons{
-    margin-top: 10px;
+.contein-all .tres-icons{
+    margin: 10px;
     display: flex;
     justify-content: space-around;
     list-style: none;
     font-size: 0.8em;
 }
-.tres-icons hr{
+.contein-all .tres-icons hr{
     border-color: black;
 }
-.tres-icons img{
+.contein-all .tres-icons img{
     margin-top: 1px;
     max-width: 50px;
 }
-.tres-icons li{
+.contein-all .tres-icons li{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/*========================= 
-        FOOTER 
-================================*/
-.footer{
-    height: 20%;
-    background-color: #FFEFE8;
+/* index-shop btn */
+
+.index-shop .btn-shop-index{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    margin: 15px auto;
+}
+.index-shop .btn-shop-index a{
+    display: inline;
+    border: solid 2px;
+    border-radius: 10%;
+    padding: 10px;
 }
 
-.footer .fa{
-    max-width: 30px;
-    max-height: 30px;
+
+/* index-shop CARRUSEL */
+.index-shop .carrusel{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+}
+
+.index-shop .carrusel .card-contein{
+    height: 100%;
+    width: 300px;
+    flex: 1 0 auto;
+}
+.index-shop .carrusel .card-contein:hover{
+    flex: 0 0 30%;
+    /* background: rgb(255, 230, 225); */
+    /* rgb(255, 227, 225); */
+}
+
+.index-shop .carrusel .precio-contein-carrucel .display-block{
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* LOADING  */
+.index-shop .loadin{
+    text-align: center;
+    margin-top: 3%;
+}
+.index-shop .loadin-obj{
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotacion 1s linear infinite;
 }
 
   
@@ -151,25 +208,25 @@ body{
         SHOP 
 =========================*/
 /* nav vinos */
-.nav-wins{
+.slider-shop .nav-wins{
     background-color: rgb(115, 95, 50);
 }
-.list-wins{
+.slider-shop .list-wins{
     border-radius: 15%;
     padding: 1% 0%;
 }
 /* Contein */
-.contein-primary{
+.slider-shop .contein-primary{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     gap: 1em;
 }
 /* LOADING  */
-.loadin{
+.slider-shop .loadin{
     text-align: center;
     margin-top: 10%;
 }
-.loadin-obj{
+.slider-shop .loadin-obj{
     width: 48px;
     height: 48px;
     border: 5px solid;
@@ -187,17 +244,50 @@ body{
     transform: rotate(360deg);
 }
 }
-/* TEMPLATE  */
+
+
+
+
+
+/*========================= 
+        FOOTER 
+================================*/
+.footer{
+    height: 20%;
+    background-color: #C69774;
+}
+
+.footer-contein{
+    width: 95vw;
+    margin: 0 auto;
+}
+
+.footer-left .derechos{
+    margin-top: 15px;
+}
+
+.footer-right {
+    display: inline;
+}
+
+.footer-right .fa{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+
+
+
+/* ========================= 
+        TEMPLATE 
+=========================*/
 .card-contein{
-    border: 1px solid;
-    border-radius: 10%;
+    /* border: 1px solid; */
     text-align: center;
-    min-height: 390px;
+    /* border-radius: 10%; */
+    /* min-height: 390px; */
 }
 .img-card{
     max-height: 300px;
     min-height: 250px;
 }
-
-
-
