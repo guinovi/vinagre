@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })
 
 
-const navWines = document.getElementById('navWines');
-const conteinPrimary = document.getElementById('conteinPrimary');
-const carrucel = document.getElementById('carrucel');
+const navWines = document.getElementById('navWines');//Shop 
+const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
+const carrucel = document.getElementById('carrucel'); //contein
+const cardPrimary = document.getElementById('cardPrimary');// template
+
 
 
 
@@ -23,20 +25,28 @@ const fetchData = async(apiUrl) =>{
     }  
 }
 
+// Verifica si el ancho de la imagen
+function getImageWidth(imageUrl) {
+    const img = new Image();
+    img.src = imageUrl;
+    return img.width;
+}
 
-
+//Numero aleatorio
+function numAleatorio() {
+    min = Math.ceil(600000);
+    max = Math.floor(2000000);
+    return (Math.floor(Math.random() * (max - min) + min));
+    //console.log(new Intl.NumberFormat().format(number));
+    //return new Intl.NumberFormat().format(Math.floor(Math.random() * (max - min) + min));
+}
 
 // DATA -->api
 const datos = (data) => {
     const template = document.getElementById("template").content;
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
-    // Verifica si el ancho de la imagen
-    function getImageWidth(imageUrl) {
-        const img = new Image();
-        img.src = imageUrl;
-        return img.width;
-    }
+
 
     data.forEach(element => {
         const point = element.rating.average;
@@ -56,6 +66,7 @@ const datos = (data) => {
             cloneDos.getElementById('cardVineria').textContent = element.winery;
             cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
             cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
+            cloneDos.getElementById('carrucelPrecio').textContent =`Precio: $${Intl.NumberFormat().format(numAleatorio())}`;
             // Fragment
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
@@ -78,6 +89,23 @@ const loading = (estado) =>{
     }
 }
 
+//index - CARRUSEL
+function autoScroll() {
+    const interval = setInterval(() => {
+        carrucel.scrollLeft = carrucel.scrollLeft + 1;
+    }, 50);
+    return interval;
+} 
+
+let interval = autoScroll();
+
+carrucel.addEventListener('mouseover', () => {
+    clearInterval(interval);
+});
+
+carrucel.addEventListener('mouseout', () => {
+    interval = autoScroll();
+});
 
 //NAV SHOP
 navWines.addEventListener('click', (e) => {
@@ -88,37 +116,3 @@ navWines.addEventListener('click', (e) => {
     fetchData(newUrl);
     datos(data);
 });
-
-
-
-//index - CARRUSEL
-function autoScroll() {
-    let limiteScroll = carrucel.scrollWidth - carrucel.clientWidth;
-    let avanceScroll = 1;
-    setInterval(() => {        
-        carrucel.scrollLeft = carrucel.scrollLeft + avanceScroll
-        // if ( limiteScroll === carrucel.scrollLeft){
-        //     avanceScroll = -1
-        // } else if (carrucel.scrollLeft === 0){
-        //     avanceScroll =  1 
-        // }
-    }, 50);
-} 
-autoScroll()
-
-
-/* let maxScrollLeft = carrucel.scrollWidth - carrucel.clientWidth;
-let intervalo = null;
-let step = 1;
-const start = () => {
-  intervalo = setInterval(function () {
-    carrucel.scrollLeft = carrucel.scrollLeft + step;
-    if (carrucel.scrollLeft === maxScrollLeft) {
-      step = step * -1;
-    } else if (carrucel.scrollLeft === 0) {
-      step = step * -1;
-    }
-  }, 10);
-};
-
-start(); */
