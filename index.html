@@ -14,10 +14,12 @@
     <title>La Vinagreta!</title>
 </head>
 <body>
-    <!-- header  -->
+    <!-- HEADER  -->
     <header id="navMain" class="header">
         <div class="title-secction">
-            <img src="./app/media/img/logo.png" alt="logo" class="logo-img">
+            <!-- <img src="./app/media/img/logo.png" alt="logo" class="logo-img"> -->
+            <img src="./app/media/img/logo/copa-color-scontrono.png" alt="logo" class="logo-img">
+            
             <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
         </div>
         <nav class="ul list-main">
@@ -28,7 +30,7 @@
         </nav>
     </header>
     
-    <!-- contenido  -->
+    <!-- CONTENIDO  -->
     <main class="contein contein-all" id="conteinAll">
         <section class="index-contein">  
             
@@ -64,6 +66,7 @@
 
             </div>
             
+            <!-- index  -->
             <div class="contein index-shop">
                 <div class="btn-shop-index no-link"><a class="" href="">SHOP ONLINE</a></div>
 
@@ -73,13 +76,17 @@
                     <div class="loadin-obj"></div>
                 </div>
                 
+                <!-- Carrusel  -->
                 <div id="carrucel" class="contein carrusel">
                     <!-- DATA -->
                 </div>
-                
-                
+                <div id="btnCarrucelLR">
+                    <span class="carrucel-left carrucel-btn-img" id="btnCarrucelLeft"><</span>
+                    <span class="carrucel-right carrucel-btn-img" id="btnCarrucelRight">></span>
+                </div>
             </div>
 
+            <!-- shop  -->
             <div class="contein shop">
                 <nav class="slider-shop display-none">
                     <!-- reds (tintos), whites (blancos), sparkling (espumantes), rose (rosados), dessert (postre) y port (Oporto),  -->
@@ -146,8 +153,11 @@
             <p id="cardRating" class="card-point"></p>
             <div class="contein precio-contein-carrucel">
                 <span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
-                <button class="btn btn-carrucel display-block" id="btnCarrucel">Agregar al carro</button>
             </div>
+            <div class="carrucel-carro-contein" id="carroCarrucel">
+                <img src="./app/media/img/carrito-de-compras.png" alt="add shop"  class="carro-carrucel-img">
+            </div>
+
         </div>
 
 

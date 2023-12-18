@@ -4,9 +4,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })
 
 
-const navWines = document.getElementById('navWines');
-const conteinPrimary = document.getElementById('conteinPrimary');
-const carrucel = document.getElementById('carrucel');
+const cardPrimary = document.getElementById('cardPrimary');// template
+const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
+const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
+const btnCarrucelRight = document. getElementById('btnCarrucelRight')// btn carrucel der
+const carroCarrucel = document.getElementById('carroCarrucel')// carrito carrucel
+const navWines = document.getElementById('navWines');//Shop 
+const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
 
 
 
@@ -23,27 +27,28 @@ const fetchData = async(apiUrl) =>{
     }  
 }
 
+// Verifica el ancho de la imagen
+function getImageWidth(imageUrl) {
+    const img = new Image();
+    img.src = imageUrl;
+    return img.width;
+}
 
-
+//Numero aleatorio
+function numAleatorio() {
+    min = Math.ceil(600000);
+    max = Math.floor(2000000);
+    return (Math.floor(Math.random() * (max - min) + min));
+    //console.log(new Intl.NumberFormat().format(number));
+    //return new Intl.NumberFormat().format(Math.floor(Math.random() * (max - min) + min));
+}
 
 // DATA -->api
 const datos = (data) => {
     const template = document.getElementById("template").content;
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
-    // Verifica si el ancho de la imagen
-    function getImageWidth(imageUrl) {
-        const img = new Image();
-        img.src = imageUrl;
-        return img.width;
-    }
 
-    //Numero aleatorio
-    function numAleatorio() {
-        min = Math.ceil(800000);
-        max = Math.floor(5000000);
-        return Math.floor(Math.random() * (max - min) + min);
-      }
 
     data.forEach(element => {
         const point = element.rating.average;
@@ -63,7 +68,7 @@ const datos = (data) => {
             cloneDos.getElementById('cardVineria').textContent = element.winery;
             cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
             cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-            cloneDos.getElementById('carrucelPrecio').textContent =`Precio: $${numAleatorio()}`;
+            cloneDos.getElementById('carrucelPrecio').textContent =`Precio: $${Intl.NumberFormat().format(numAleatorio())}`;
             // Fragment
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
@@ -75,16 +80,50 @@ const datos = (data) => {
 
 //Cargando....  
 const loading = (estado) =>{
+    const btnCarrucelLR = document.getElementById('btnCarrucelLR')
     const loading = document.getElementById('loading')
     if (estado) {
         conteinPrimary.classList.add('display-none');
+        btnCarrucelLR.classList.add('display-none')
         loading.classList.remove('display-none');
 
     } else {
         conteinPrimary.classList.remove('display-none');
         loading.classList.add('display-none');
+        btnCarrucelLR.classList.remove('display-none');
     }
 }
+
+//index - CARRUSEL
+function autoScroll() {
+    const interval = setInterval(() => {
+        carrucel.scrollLeft = carrucel.scrollLeft + 1;
+    }, 50);
+    return interval;
+} 
+
+let interval = autoScroll();
+//STOP carrcuel
+carrucel.addEventListener('mouseover', () => {
+    clearInterval(interval);
+});
+//play carrucel
+carrucel.addEventListener('mouseout', () => {
+    interval = autoScroll();
+});
+
+//botones izq y der carrucel
+btnCarrucelLeft.addEventListener('click', ()=>{
+    carrucel.scrollLeft = carrucel.scrollLeft - 100;
+})
+btnCarrucelRight.addEventListener('click', ()=>{
+    carrucel.scrollLeft = carrucel.scrollLeft + 100;
+})
+
+//Carrito carrucel
+carroCarrucel.appendChild
+
+
 
 
 //NAV SHOP
@@ -96,37 +135,3 @@ navWines.addEventListener('click', (e) => {
     fetchData(newUrl);
     datos(data);
 });
-
-
-
-//index - CARRUSEL
-function autoScroll() {
-    let limiteScroll = carrucel.scrollWidth - carrucel.clientWidth;
-    let avanceScroll = 1;
-    setInterval(() => {        
-        carrucel.scrollLeft = carrucel.scrollLeft + avanceScroll
-        // if ( limiteScroll === carrucel.scrollLeft){
-        //     avanceScroll = -1
-        // } else if (carrucel.scrollLeft === 0){
-        //     avanceScroll =  1 
-        // }
-    }, 50);
-} 
-autoScroll()
-
-
-/* let maxScrollLeft = carrucel.scrollWidth - carrucel.clientWidth;
-let intervalo = null;
-let step = 1;
-const start = () => {
-  intervalo = setInterval(function () {
-    carrucel.scrollLeft = carrucel.scrollLeft + step;
-    if (carrucel.scrollLeft === maxScrollLeft) {
-      step = step * -1;
-    } else if (carrucel.scrollLeft === 0) {
-      step = step * -1;
-    }
-  }, 10);
-};
-
-start(); */
