@@ -1,14 +1,25 @@
+window.addEventListener('load', () => {
+    const url = 'https://api.sampleapis.com/wines/reds';
+    fetchData(url);
+});
+
+
+
 const url = 'https://api.sampleapis.com/wines/reds';
+
+
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchData(url) //carga primero el documento
 })
 
 
+const cardPrimary = document.getElementById('cardPrimary');// template
+const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
+const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
+const btnCarrucelRight = document. getElementById('btnCarrucelRight')// btn carrucel der
+const carroCarrucel = document.getElementById('carroCarrucel')// carrito carrucel
 const navWines = document.getElementById('navWines');//Shop 
 const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
-const carrucel = document.getElementById('carrucel'); //contein
-const cardPrimary = document.getElementById('cardPrimary');// template
-
 
 
 
@@ -25,7 +36,7 @@ const fetchData = async(apiUrl) =>{
     }  
 }
 
-// Verifica si el ancho de la imagen
+// Verifica el ancho de la imagen
 function getImageWidth(imageUrl) {
     const img = new Image();
     img.src = imageUrl;
@@ -78,34 +89,48 @@ const datos = (data) => {
 
 //Cargando....  
 const loading = (estado) =>{
+    const btnCarrucelLR = document.getElementById('btnCarrucelLR')
     const loading = document.getElementById('loading')
     if (estado) {
         conteinPrimary.classList.add('display-none');
+        btnCarrucelLR.classList.add('display-none')
         loading.classList.remove('display-none');
 
     } else {
         conteinPrimary.classList.remove('display-none');
         loading.classList.add('display-none');
+        btnCarrucelLR.classList.remove('display-none');
     }
 }
 
 //index - CARRUSEL
 function autoScroll() {
     const interval = setInterval(() => {
-        carrucel.scrollLeft = carrucel.scrollLeft + 1;
+        carrucel.scrollLeft = carrucel.scrollLeft + 2;
     }, 50);
     return interval;
 } 
 
 let interval = autoScroll();
 
+//STOP carrcuel
 carrucel.addEventListener('mouseover', () => {
     clearInterval(interval);
 });
-
+//play carrucel
 carrucel.addEventListener('mouseout', () => {
     interval = autoScroll();
 });
+
+//botones izq y der carrucel
+btnCarrucelLeft.addEventListener('click', ()=>{
+    carrucel.scrollLeft = carrucel.scrollLeft - 100;
+})
+btnCarrucelRight.addEventListener('click', ()=>{
+    carrucel.scrollLeft = carrucel.scrollLeft + 100;
+})
+
+
 
 //NAV SHOP
 navWines.addEventListener('click', (e) => {
@@ -116,3 +141,4 @@ navWines.addEventListener('click', (e) => {
     fetchData(newUrl);
     datos(data);
 });
+
