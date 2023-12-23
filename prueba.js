@@ -28,12 +28,6 @@ const fetchData = async (newUrl) => {
     }
 };
 
-// Función para mostrar/ocultar mensaje de carga (puedes implementarla según tus necesidades)
-const loading = (isLoading) => {
-    // Implementa la lógica para mostrar/ocultar el mensaje de carga
-};
-
-
 
 /*ORIGINAL 
 const fetchData = async() =>{

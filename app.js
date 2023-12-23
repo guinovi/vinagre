@@ -13,14 +13,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })
 
 
-const cardPrimary = document.getElementById('cardPrimary');// template
+const cardPrimary = document.getElementById('cardPrimary');// Card primary template
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
 const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
-const btnCarrucelRight = document. getElementById('btnCarrucelRight')// btn carrucel der
-const carroCarrucel = document.getElementById('carroCarrucel')// carrito carrucel
+const btnCarrucelRight = document. getElementById('btnCarrucelRight');// btn carrucel der
 const navWines = document.getElementById('navWines');//Shop 
 const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
+const template = document.getElementById("template").content;
 
+
+const carroShop = [];
 
 
 const fetchData = async(apiUrl) =>{
@@ -48,13 +50,10 @@ function numAleatorio() {
     min = Math.ceil(600000);
     max = Math.floor(2000000);
     return (Math.floor(Math.random() * (max - min) + min));
-    //console.log(new Intl.NumberFormat().format(number));
-    //return new Intl.NumberFormat().format(Math.floor(Math.random() * (max - min) + min));
 }
 
 // DATA -->api
 const datos = (data) => {
-    const template = document.getElementById("template").content;
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
 
@@ -82,6 +81,7 @@ const datos = (data) => {
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
         }
+        
     });
     conteinPrimary.appendChild(fragment);
     carrucel.appendChild(fragmentDos);
@@ -131,7 +131,7 @@ btnCarrucelRight.addEventListener('click', ()=>{
 })
 
 
-
+//---------------------------------------------------------------------
 //NAV SHOP
 navWines.addEventListener('click', (e) => {
     e.preventDefault();
@@ -142,3 +142,54 @@ navWines.addEventListener('click', (e) => {
     datos(data);
 });
 
+
+// CARRO index Añadir
+
+carrucel.addEventListener('click', (e) => {
+    const targetElement = e.target.closest('.carrucel-carro-contein');
+
+    if (targetElement) {
+        const card = targetElement.closest('.card-contein');// COntein        
+        const imgSrc = card.querySelector('.img-card').src;
+        const title = card.querySelector('.title-card').textContent;
+        const vineria = card.querySelector('.title-vineria').textContent;
+        const origen = card.querySelector('.card-from').textContent;
+        const rating = card.querySelector('.card-point').textContent;
+        const precio = card.querySelector('.precio-carrucel').textContent;
+        //añadir a elementos
+        const elemtSelected = {
+            img: imgSrc,
+            title: title,
+            vineria: vineria,
+            origen: origen,
+            rating: rating,
+            precio: precio,
+        }
+        carroShop.push(elemtSelected)
+        pushCarroHead()
+    }
+});
+
+
+//carro header show
+const carroHeadShow = document.getElementById('carroHeadShow');
+carroHeadShow.addEventListener('click', ()=>{
+    carroHeadShow.classList.remove('display-none')
+
+})
+
+function pushCarroHead(){
+    const sectionCarroHead = document.getElementById('sectionCarroHead');
+    sectionCarroHead.innerHTML = "";
+    
+    fragmentCarroHead = document.createDocumentFragment();
+    
+    const cloneHead = template.cloneNode(true);
+    cloneHead.getElementById('cardImg').setAttribute("src", carroShop[0].img);
+    cloneHead.getElementById('cardTitle').textContent = carroShop[0].title;
+
+    fragmentCarroHead.appendChild(cloneHead)
+    
+    sectionCarroHead.appendChild(fragmentCarroHead)
+
+}
