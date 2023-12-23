@@ -70,6 +70,19 @@ body{
     max-height: 35px;
 }
 
+.header .title-secction .carro-all-coonten{
+    position: absolute;
+    top: 300px;
+    right: 100px;
+    max-width: 600px;
+    background-color: #FF3D00;
+}
+
+.header .title-secction .carrucel-carro-contein{
+    display: none;
+}
+
+
 /* nav */
 .list-main{
     padding: 1% 0%;
