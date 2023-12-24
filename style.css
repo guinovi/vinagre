@@ -15,7 +15,7 @@
 }
 
 body{
-    background-color: rgb(255, 227, 225);
+    background-color: #EAD196;
 }
 
 .no-link a:link, a:visited, a:active {
@@ -31,30 +31,114 @@ body{
 ========================= */
 .header{
     border-bottom: solid 1px;
-    background-color: #637E76;
+    background-color: rgba(204, 126, 66, 0.4);
     width: 100%;
 }
 /* title y logo */
 .header .title-secction{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
+    padding: 10px 0;
+    padding-bottom: 1px 0px;
+    display: block;
 }
-.header .title-secction .title{
-    padding-top: 2%;
+.header .title-secction .logo-and-title{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.header .title-secction .logo-and-title .title{
+    padding-top: 1%;
     font-family: 'Josefin Slab', serif;
     text-align: center;
-    font-size: 3em;
+    font-size: 4.5em;
     display: inline;
 }
-.header .title-secction .logo-img{
-    max-width: 70px;
-    max-height: 70px;
+.header .title-secction .logo-and-title .logo-img{
+    max-height: 80px;
     opacity: 0.8;
-    border-radius: 50%;
+    border-radius: 30%;
     display: inline;
 }
+
+
+        /* CARRITO HEAD  */
+
+.header .title-secction .carrito-section-head{
+    float: right;
+    margin: 50px 10px 0 0;
+    font-size: 1.3em;
+    gap: 10px;
+    cursor: pointer;
+}
+.header .title-secction .carrito-head{
+    max-height: 30px;
+}
+.header .title-secction .carrito-h{
+    display: inline;
+}
+
+ /* COMPRAS  */
+.header .title-secction .carro-all-coonten{
+    position: relative;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head{
+    position: absolute;
+    float: left;
+    right: 1px;
+    width: 500px;
+    height: 500px;
+    overflow-y: auto;
+    background-color: #FF3D00;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+/* .header .title-secction .carro-all-coonten .section-vinos-head .img-card{
+    height: 150px;
+    max-height: 150px;
+    width: auto;
+} */
+/* .header .title-secction .carro-all-coonten .section-vinos-head .img-card,
+.header .title-secction .carro-all-coonten .section-vinos-head #carroHeadShow .img-card {
+    height: 150px !important;
+    max-height: 150px !important;
+    width: auto !important;
+} */
+
+.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* .header .title-secction .carro-all-coonten .section-vinos-head .title-card{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .title-vineria{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .card-from{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .card-point{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel{
+    font-size: 0.8em;
+} */
+
+
+
+
+
+
+
+
 /* nav */
 .list-main{
     padding: 1% 0%;
@@ -87,7 +171,7 @@ body{
     margin-bottom: 15px;
 }
 
-/* slide */
+/* slider */
 .slider {
     width: 100%;
     margin: auto;
@@ -95,6 +179,7 @@ body{
     border-bottom: solid 1px;
     border-left: solid 1px;
     border-right: solid 1px;
+
 }
 .slider ul {
     display: flex;
@@ -153,7 +238,16 @@ body{
     flex-wrap: nowrap;
     overflow: hidden;
     height: 500px;
+    /* position: relative; */
 }
+
+/* .index-shop .carrusel::before{
+    content: "<";
+    font-size: 3em;
+    color: red;
+    position: fixed;
+
+} */
 
 .index-shop .carrusel .card-contein{
     align-self: center;
@@ -181,7 +275,7 @@ body{
 .index-shop .carrucel-btn-img{
     display: flex;
     position: absolute;
-    top: 125%;
+    top: 110%;
     border-radius: 60%;
     cursor: pointer;
     transform: translate(0,-50%);
@@ -192,6 +286,7 @@ body{
     font-size: 2em;
     font-weight: 500;
 }
+
 .index-shop .carrucel-btn-img:hover {
     background-color: #333333ab;
 }
@@ -210,6 +305,13 @@ body{
 }
 .carrucel-carro-contein:hover::after{
     content: "Añadir al carrito";
+    margin-left: 10px;
+}
+
+.index-shop .carrucel-carro-contein:hover{
+    background-color: #e27171ad;
+    font-size: 1.2em;
+    padding: 2px;
 }
 .index-shop .carrucel-carro-contein .carro-carrucel-img{
     max-width: 30px;

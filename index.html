@@ -17,17 +17,33 @@
     <!-- HEADER  -->
     <header id="navMain" class="header">
         <div class="title-secction">
-            <!-- <img src="./app/media/img/logo.png" alt="logo" class="logo-img"> -->
-            <img src="./app/media/img/logo/copa-color-scontrono.png" alt="logo" class="logo-img">
+            <div class="carrito-section-head" id="carritoHead">
+                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head">
+                <h6 class="carrito-h">Mi Carro</h6>
+                
+                <div class="carro-all-coonten" id="carroHeadShow">
+                    <div class="section-vinos-head" id="sectionCarroHead">
+                        <!-- Vinos agregados al carro -->
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="logo-and-title">
+                <img style="max-width: 80px" src="./app/media/img/logo/beber-vino.png" alt="logo" class="logo-img">
+                
+                <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
+            </div>
             
-            <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
         </div>
+       
         <nav class="ul list-main">
             <li><a id="webIndex" href="./index.html">Inicio</a></li>
             <li><a id="webShop" href="./shop.html">Shop</a></li>
             <li><a id="webServicios" href="#services">Servicios</a></li>
             <li><a id="webContacto" href="#contact">Contacto</a></li>
         </nav>
+
     </header>
     
     <!-- CONTENIDO  -->
@@ -78,12 +94,12 @@
                 
                 <!-- Carrusel  -->
                 <div id="carrucel" class="contein carrusel">
-                    <!-- DATA -->
+                <!-- DATA -->
                 </div>
                 <div id="btnCarrucelLR">
                     <span class="carrucel-left carrucel-btn-img" id="btnCarrucelLeft"><</span>
                     <span class="carrucel-right carrucel-btn-img" id="btnCarrucelRight">></span>
-                </div>
+                </div>              
             </div>
 
             <!-- shop  -->
@@ -157,9 +173,25 @@
             <div class="carrucel-carro-contein" id="carroCarrucel">
                 <img src="./app/media/img/carrito-de-compras.png" alt="add shop"  class="carro-carrucel-img">
             </div>
-
         </div>
+    </template>
 
+    <template id="templateShopMuenu">
+        <div id="cardPrimaryShopMuenu" class="card card-contein contein">
+            <img id="cardImgShopMuenu" class="img img-card" src="" alt="imagen">
+            <div class="texts-content-card-shop">
+                <h4 id="cardTitleShopMuenu" class="title title-card"></h4>
+                <p id="cardVineriaShopMuenu" class="title title-vineria"></p>
+                <p id="cardFromShopMuenu" class="card-from"></p>
+                <p id="cardRatingShopMuenu" class="card-point"></p>
+                <div class="contein precio-contein-carrucel">
+                    <span class="precio precio-carrucel display-block" id="carrucelPrecioShopMuenu"></span>
+                </div>
+                <div class="btn-carro-eliminar" id="btnEliminarShopMuenu">
+                    <button>Eliminar</button>
+                </div>
+            </div>
+        </div>
 
     </template>
     

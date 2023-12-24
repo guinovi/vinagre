@@ -1,17 +1,30 @@
+window.addEventListener('load', () => {
+    const url = 'https://api.sampleapis.com/wines/reds';
+    fetchData(url);
+});
+
+
+
 const url = 'https://api.sampleapis.com/wines/reds';
+
+
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchData(url) //carga primero el documento
 })
 
 
-const cardPrimary = document.getElementById('cardPrimary');// template
+const cardPrimary = document.getElementById('cardPrimary');// Card primary template
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
 const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
-const btnCarrucelRight = document. getElementById('btnCarrucelRight')// btn carrucel der
-const carroCarrucel = document.getElementById('carroCarrucel')// carrito carrucel
+const btnCarrucelRight = document. getElementById('btnCarrucelRight');// btn carrucel der
 const navWines = document.getElementById('navWines');//Shop 
 const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
+const template = document.getElementById("template").content;//TEMPLATE
+const sectionCarroHead = document.getElementById('sectionCarroHead'); //conten
+    const templateShopMuenu = document.getElementById('templateShopMuenu').content //templateMenu
 
+
+const carroShop = [];
 
 
 const fetchData = async(apiUrl) =>{
@@ -39,13 +52,10 @@ function numAleatorio() {
     min = Math.ceil(600000);
     max = Math.floor(2000000);
     return (Math.floor(Math.random() * (max - min) + min));
-    //console.log(new Intl.NumberFormat().format(number));
-    //return new Intl.NumberFormat().format(Math.floor(Math.random() * (max - min) + min));
 }
 
 // DATA -->api
 const datos = (data) => {
-    const template = document.getElementById("template").content;
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
 
@@ -73,6 +83,7 @@ const datos = (data) => {
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
         }
+        
     });
     conteinPrimary.appendChild(fragment);
     carrucel.appendChild(fragmentDos);
@@ -97,12 +108,13 @@ const loading = (estado) =>{
 //index - CARRUSEL
 function autoScroll() {
     const interval = setInterval(() => {
-        carrucel.scrollLeft = carrucel.scrollLeft + 1;
+        carrucel.scrollLeft = carrucel.scrollLeft + 2;
     }, 50);
     return interval;
 } 
 
 let interval = autoScroll();
+
 //STOP carrcuel
 carrucel.addEventListener('mouseover', () => {
     clearInterval(interval);
@@ -120,12 +132,8 @@ btnCarrucelRight.addEventListener('click', ()=>{
     carrucel.scrollLeft = carrucel.scrollLeft + 100;
 })
 
-//Carrito carrucel
-carroCarrucel.appendChild
 
-
-
-
+//---------------------------------------------------------------------
 //NAV SHOP
 navWines.addEventListener('click', (e) => {
     e.preventDefault();
@@ -135,3 +143,58 @@ navWines.addEventListener('click', (e) => {
     fetchData(newUrl);
     datos(data);
 });
+
+
+// CARRO index Añadir
+
+carrucel.addEventListener('click', (e) => {
+    const targetElement = e.target.closest('.carrucel-carro-contein');
+
+    if (targetElement) {
+        const card = targetElement.closest('.card-contein');// COntein        
+        const imgSrc = card.querySelector('.img-card').src;
+        const title = card.querySelector('.title-card').textContent;
+        const vineria = card.querySelector('.title-vineria').textContent;
+        const origen = card.querySelector('.card-from').textContent;
+        const rating = card.querySelector('.card-point').textContent;
+        const precio = card.querySelector('.precio-carrucel').textContent;
+        //añadir a elementos
+        const elemtSelected = {
+            img: imgSrc,
+            title: title,
+            vineria: vineria,
+            origen: origen,
+            rating: rating,
+            precio: precio,
+        }
+        carroShop.push(elemtSelected)
+    }
+    pushCarroHead()
+});
+
+
+//carro header show
+const carroHeadShow = document.getElementById('carroHeadShow');
+carroHeadShow.addEventListener('click', ()=>{
+    carroHeadShow.classList.remove('display-none')
+
+})
+
+function pushCarroHead(){
+    sectionCarroHead.innerHTML = ""; // en blanco
+    //fragment
+    fragmentCarroHead = document.createDocumentFragment();    
+    //desglozado
+    carroShop.forEach(card =>{
+        const cloneHead = templateShopMuenu.cloneNode(true);
+        cloneHead.getElementById('cardImgShopMuenu').setAttribute("src", card.img);
+        cloneHead.getElementById('cardImgShopMuenu').setAttribute("height", "150px")
+        cloneHead.getElementById('cardTitleShopMuenu').textContent = card.title;
+        cloneHead.getElementById('cardVineriaShopMuenu').textContent = card.vineria;
+        cloneHead.getElementById('cardFromShopMuenu').textContent = card.origen;
+        cloneHead.getElementById('cardRatingShopMuenu').textContent =  card.rating;
+        cloneHead.getElementById('carrucelPrecioShopMuenu').textContent = card.precio;
+        fragmentCarroHead.appendChild(cloneHead)
+    });    
+    sectionCarroHead.appendChild(fragmentCarroHead);
+}
