@@ -81,27 +81,109 @@ body{
     position: relative;
 }
 
+.header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head{
+    max-height: 270px;
+    padding: 7px 10px;
+    border: outset 1px white;
+    width: 450px;
+    font-weight: 600;
+    color: rgb(95, 35, 35);
+}
+
 .header .title-secction .carro-all-coonten .section-vinos-head{
     position: absolute;
     float: left;
     right: 1px;
-    width: 500px;
-    height: 500px;
+    max-width: 500px;
+    max-height: 500px;
     overflow-y: auto;
-    background-color: #FF3D00;
+    background-color: rgba(228, 219, 198, 0.9);
 }
+
+/* .header .title-secction .carro-all-coonten {
+    display: flex;
+    position: relative;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head {
+    flex: 1;
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: rgba(228, 219, 198, 0.9);
+    position: absolute;
+    right: 1px;
+} */
+
+
 
 .header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
-    height: 250px;
-    display: flex;
-    align-items: center;
+    height: 270px;
+    padding: 7px 5px;
+    border: outset 4px white;
+    width: 450px;
 }
 
-/* .header .title-secction .carro-all-coonten .section-vinos-head .img-card{
+.header .title-secction .carro-all-coonten .section-vinos-head .img-card{
     height: 150px;
     max-height: 150px;
     width: auto;
+    float: left;
+}
+
+
+
+.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
+    padding: 10px 0px;
+    font-size: .9em;
+    font-weight: 550;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .title-card{
+    font-size: 1em;
+    border-bottom: solid 1px;
+    padding: 5px 0px;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel{
+    margin-top: 8px;
+    font-weight: 600;
+} 
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel span{
+    display: inline;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar{
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 5px;
+    color: #660404;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar:hover{
+    background-color: white;
+    padding: 10px 0;
+    margin: 0 10%;
+}
+
+/* total $  */
+.header .title-secction .carro-all-coonten .section-vinos-head .total-precio-contein-head{
+    max-height: 270px;
+    padding: 7px 10px;
+    border: outset 1px white;
+    width: 450px;
+    font-weight: 600;
+    color: rgb(64, 58, 58);
+}
+
+
+/* .header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar div{
+    align-self: end;
 } */
+
 /* .header .title-secction .carro-all-coonten .section-vinos-head .img-card,
 .header .title-secction .carro-all-coonten .section-vinos-head #carroHeadShow .img-card {
     height: 150px !important;
@@ -109,16 +191,7 @@ body{
     width: auto !important;
 } */
 
-.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
-    font-size: 0.9em;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* .header .title-secction .carro-all-coonten .section-vinos-head .title-card{
-    font-size: 0.8em;
-}
+/* 
 .header .title-secction .carro-all-coonten .section-vinos-head .title-vineria{
     font-size: 0.8em;
 }
@@ -128,9 +201,7 @@ body{
 .header .title-secction .carro-all-coonten .section-vinos-head .card-point{
     font-size: 0.8em;
 }
-.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel{
-    font-size: 0.8em;
-} */
+*/
 
 
 
@@ -265,10 +336,13 @@ body{
     display: none;
 }
 .index-shop .carrusel .precio-contein-carrucel{
-    display: block;
     margin: 0 auto;
     font-weight: 600;
     color: #660404;
+}
+
+.index-shop .carrusel .precio-contein-carrucel span{
+    display: inline;
 }
 
 /* carrucel btn  */

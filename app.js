@@ -21,9 +21,10 @@ const navWines = document.getElementById('navWines');//Shop
 const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
 const template = document.getElementById("template").content;//TEMPLATE
 const sectionCarroHead = document.getElementById('sectionCarroHead'); //conten
-    const templateShopMuenu = document.getElementById('templateShopMuenu').content //templateMenu
-
-
+const templateShopMuenu = document.getElementById('templateShopMuenu').content //templateMenu
+const carroHeadShow = document.getElementById('carroHeadShow'); // SHOW Carro
+const carritoHead = document.getElementById('carritoHead'); // CArro Head Element
+const montoTotalHead = document.getElementById('montoTotalHead');
 const carroShop = [];
 
 
@@ -78,7 +79,7 @@ const datos = (data) => {
             cloneDos.getElementById('cardVineria').textContent = element.winery;
             cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
             cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-            cloneDos.getElementById('carrucelPrecio').textContent =`Precio: $${Intl.NumberFormat().format(numAleatorio())}`;
+            cloneDos.getElementById('carrucelPrecio').textContent =`${Intl.NumberFormat().format(numAleatorio())}`;
             // Fragment
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
@@ -166,20 +167,14 @@ carrucel.addEventListener('click', (e) => {
             origen: origen,
             rating: rating,
             precio: precio,
+            cant: 1,
         }
         carroShop.push(elemtSelected)
     }
     pushCarroHead()
 });
 
-
-//carro header show
-const carroHeadShow = document.getElementById('carroHeadShow');
-carroHeadShow.addEventListener('click', ()=>{
-    carroHeadShow.classList.remove('display-none')
-
-})
-
+//Push head
 function pushCarroHead(){
     sectionCarroHead.innerHTML = ""; // en blanco
     //fragment
@@ -198,3 +193,54 @@ function pushCarroHead(){
     });    
     sectionCarroHead.appendChild(fragmentCarroHead);
 }
+
+
+// CARRITO HEAD SHOW
+carritoHead.addEventListener('click', (e) => {
+    const btnEliminarHead = e.target.closest('.btn-carro-eliminar');
+    const montoTotalHead = document.getElementById('montoTotalHead');
+    const cantidadTotalHead = document.getElementById('cantidadTotalHead');
+    
+    if ((e.target === carritoHead) || (e.target === carritoHeadImg) || (e.target === carritoHeadH)) {
+        carroHeadShow.classList.toggle('display-none')
+        //acualizacion datos
+        cantidadTotalHead.textContent = `${carroShop.length}`
+        montoTotalHead.textContent = `${calcularTotalCarrito()}`
+    }
+    if (btnEliminarHead) {
+        const elementDelete = e.target.closest('.card-contein')
+        const titleDelete = elementDelete.querySelector('.title-card').textContent;
+        // indice eliminado
+        const indexToDelete = carroShop.findIndex(vino => vino.title === titleDelete);
+        // Eliminar del array
+        if (indexToDelete !== -1) {
+            carroShop.splice(indexToDelete, 1);
+        }
+        // Eliminar del DOM
+        e.target.closest('.card-contein').remove();
+        //acualizacion datos
+        cantidadTotalHead.textContent = `${carroShop.length}`
+        montoTotalHead.textContent = `${calcularTotalCarrito()}`
+    }
+});
+
+// //ocultar el carrito
+carroHeadShow.addEventListener('mouseleave', () => {
+    carroHeadShow.classList.add('display-none');
+});
+
+
+function calcularTotalCarrito() {
+    let total = 0;
+    for (const vino of carroShop) {
+        // Eliminar puntos y convertir a num
+        const precioNumerico = parseFloat(vino.precio.replace(/\./g, '').replace(',', '.'));
+        // Verificar
+        if (!isNaN(precioNumerico)) {
+            total += precioNumerico;
+        }
+    }
+    // Devuelve total
+    return Intl.NumberFormat().format(total);
+}
+

@@ -18,14 +18,18 @@
     <header id="navMain" class="header">
         <div class="title-secction">
             <div class="carrito-section-head" id="carritoHead">
-                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head">
-                <h6 class="carrito-h">Mi Carro</h6>
+                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head" id="carritoHeadImg">
+                <h6 class="carrito-h" id="carritoHeadH">Mi Carro</h6>
                 
-                <div class="carro-all-coonten" id="carroHeadShow">
-                    <div class="section-vinos-head" id="sectionCarroHead">
-                        <!-- Vinos agregados al carro -->
-                    </div>
+                <div class="carro-all-coonten display-none" id="carroHeadShow">
+                    <div class="section-vinos-head">
+                        <div class="cantidad-contein-head">Cantidad en carrito: <span id="cantidadTotalHead"></span></div>
+                        <div class="" id="sectionCarroHead">
+                            <!-- Vinos agregados al carro -->
+                        </div>
+                        <div class="total-precio-contein-head">Total: $<span id="montoTotalHead"></span></div>
 
+                    </div>
                 </div>
             </div>
 
@@ -168,7 +172,7 @@
             <p id="cardFrom" class="card-from"></p>
             <p id="cardRating" class="card-point"></p>
             <div class="contein precio-contein-carrucel">
-                <span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
+                Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
             </div>
             <div class="carrucel-carro-contein" id="carroCarrucel">
                 <img src="./app/media/img/carrito-de-compras.png" alt="add shop"  class="carro-carrucel-img">
@@ -185,10 +189,10 @@
                 <p id="cardFromShopMuenu" class="card-from"></p>
                 <p id="cardRatingShopMuenu" class="card-point"></p>
                 <div class="contein precio-contein-carrucel">
-                    <span class="precio precio-carrucel display-block" id="carrucelPrecioShopMuenu"></span>
+                    Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecioShopMuenu"></span>
                 </div>
-                <div class="btn-carro-eliminar" id="btnEliminarShopMuenu">
-                    <button>Eliminar</button>
+                <div id="btnEliminarShopMuenu" class="btn-carro-eliminar">
+                    <div>Eliminar</div>
                 </div>
             </div>
         </div>
