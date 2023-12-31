@@ -17,20 +17,28 @@
     <!-- HEADER  -->
     <header id="navMain" class="header">
         <div class="title-secction">
-            <img style="max-width: 80px" src="./app/media/img/logo/beber-vino.png" alt="logo" class="logo-img">
-            <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
             <div class="carrito-section-head" id="carritoHead">
-                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head">
-                <h6 class="carrito-subsection">Mi Carro</h6>
+                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head" id="carritoHeadImg">
+                <h6 class="carrito-h" id="carritoHeadH">Mi Carro</h6>
                 
-                <div class="carro-all-coonten" id="carroHeadShow">
-                    <p></p>
-                    <div class="section-vinos-head" id="sectionCarroHead">
-                        <!-- Vinos agregados al carro -->
-                    </div>
+                <div class="carro-all-coonten display-none" id="carroHeadShow">
+                    <div class="section-vinos-head">
+                        <div class="cantidad-contein-head">Cantidad en carrito: <span id="cantidadTotalHead"></span></div>
+                        <div class="" id="sectionCarroHead">
+                            <!-- Vinos agregados al carro -->
+                        </div>
+                        <div class="total-precio-contein-head">Total: $<span id="montoTotalHead"></span></div>
 
+                    </div>
                 </div>
             </div>
+
+            <div class="logo-and-title">
+                <img style="max-width: 80px" src="./app/media/img/logo/beber-vino.png" alt="logo" class="logo-img">
+                
+                <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
+            </div>
+            
         </div>
        
         <nav class="ul list-main">
@@ -46,6 +54,7 @@
     <main class="contein contein-all" id="conteinAll">
         <section class="index-contein">  
             
+            <!-- Slider -->
             <div class="contein slider slider-contein">
                 <ul>
                     <li class="slider-img">
@@ -60,6 +69,7 @@
                 </ul>
             </div>
             
+            <!-- 3 Icns -->
             <div class="contein tres-icons">
                 <li>
                     <img src="./app/media/img/entrega.png" alt="imagen envios" class="img-icons">
@@ -90,41 +100,18 @@
                 
                 <!-- Carrusel  -->
                 <div id="carrucel" class="contein carrusel">
-                <!-- DATA -->
+                    <!-- Data carrucel -->
                 </div>
                 <div id="btnCarrucelLR">
                     <span class="carrucel-left carrucel-btn-img" id="btnCarrucelLeft"><</span>
                     <span class="carrucel-right carrucel-btn-img" id="btnCarrucelRight">></span>
                 </div>              
             </div>
-
-            <!-- shop  -->
-            <div class="contein shop">
-                <nav class="slider-shop display-none">
-                    <!-- reds (tintos), whites (blancos), sparkling (espumantes), rose (rosados), dessert (postre) y port (Oporto),  -->
-                    <div id="navWines" class="nav-wins">
-                        <ul class="ul list-wins">
-                            <li><a id="reds" href="#reds">Tintos</a></li>
-                            <li><a id="whites" href="#whites">Blancos</a></li>
-                            <li><a id="sparkling" href="#espumantes">Espumantes</a></li>
-                            <li><a id="rose" href="#rosados">Rosados</a></li>
-                            <li><a id="dessert" href="#postre">Postre</a></li>
-                            <li><a id="port" href="#oporto">Oporto</a></li>
-                        </ul>
-
-                        <!-- loadin  -->
-                        <section class="loadin display-none" id="loading" >
-                            <h1>Cargando...</h1>
-                            <div class="loadin-obj"></div>
-                        </section>
-                    
-                        <!-- DATA API -->
-                        <section class="contein contein-primary" id="conteinPrimary">
-                        </section>
-                
-                    </div>  
-                </nav>
-            </div>
+            
+            <div class="errores-js display-none">
+                <div id="navWines"></div>
+                <div id="conteinPrimary"></div>
+              </div>      
       
         </section>
     </main>
@@ -164,18 +151,32 @@
             <p id="cardFrom" class="card-from"></p>
             <p id="cardRating" class="card-point"></p>
             <div class="contein precio-contein-carrucel">
-                <span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
+                Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
             </div>
             <div class="carrucel-carro-contein" id="carroCarrucel">
                 <img src="./app/media/img/carrito-de-compras.png" alt="add shop"  class="carro-carrucel-img">
             </div>
+        </div>
+    </template>
 
+    <template id="templateShopMuenu">
+        <div id="cardPrimaryShopMuenu" class="card card-contein contein">
+            <img id="cardImgShopMuenu" class="img img-card" src="" alt="imagen">
+            <div class="texts-content-card-shop">
+                <h4 id="cardTitleShopMuenu" class="title title-card"></h4>
+                <p id="cardVineriaShopMuenu" class="title title-vineria"></p>
+                <p id="cardFromShopMuenu" class="card-from"></p>
+                <p id="cardRatingShopMuenu" class="card-point"></p>
+                <div class="contein precio-contein-carrucel">
+                    Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecioShopMuenu"></span>
+                </div>
+                <div id="btnEliminarShopMuenu" class="btn-carro-eliminar">
+                    <div>Eliminar</div>
+                </div>
+            </div>
         </div>
 
-
     </template>
-    
-
 
     <script src="./app.js"></script>
 

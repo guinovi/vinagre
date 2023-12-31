@@ -17,9 +17,14 @@ const cardPrimary = document.getElementById('cardPrimary');// Card primary templ
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
 const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
 const btnCarrucelRight = document. getElementById('btnCarrucelRight');// btn carrucel der
+const template = document.getElementById("template").content;//TEMPLATE
+const sectionCarroHead = document.getElementById('sectionCarroHead'); //carro head
+const templateShopMuenu = document.getElementById('templateShopMuenu').content //template Shop Head
+const carroHeadShow = document.getElementById('carroHeadShow'); // SHOW Carro Head
+const carritoHead = document.getElementById('carritoHead'); // CArro Head Element
+const montoTotalHead = document.getElementById('montoTotalHead'); //Total HEad
 const navWines = document.getElementById('navWines');//Shop 
 const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
-const template = document.getElementById("template").content;
 
 
 const carroShop = [];
@@ -48,7 +53,7 @@ function getImageWidth(imageUrl) {
 //Numero aleatorio
 function numAleatorio() {
     min = Math.ceil(600000);
-    max = Math.floor(2000000);
+    max = Math.floor(1000000);
     return (Math.floor(Math.random() * (max - min) + min));
 }
 
@@ -76,7 +81,7 @@ const datos = (data) => {
             cloneDos.getElementById('cardVineria').textContent = element.winery;
             cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
             cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-            cloneDos.getElementById('carrucelPrecio').textContent =`Precio: $${Intl.NumberFormat().format(numAleatorio())}`;
+            cloneDos.getElementById('carrucelPrecio').textContent =`${Intl.NumberFormat().format(numAleatorio())}`;
             // Fragment
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
@@ -131,20 +136,7 @@ btnCarrucelRight.addEventListener('click', ()=>{
 })
 
 
-//---------------------------------------------------------------------
-//NAV SHOP
-navWines.addEventListener('click', (e) => {
-    e.preventDefault();
-    conteinPrimary.innerHTML = ""//boora contenido
-    wineType = e.target.id; // Obtener el id
-    const newUrl = 'https://api.sampleapis.com/wines/' + wineType;
-    fetchData(newUrl);
-    datos(data);
-});
-
-
 // CARRO index Añadir
-
 carrucel.addEventListener('click', (e) => {
     const targetElement = e.target.closest('.carrucel-carro-contein');
 
@@ -164,32 +156,96 @@ carrucel.addEventListener('click', (e) => {
             origen: origen,
             rating: rating,
             precio: precio,
+            cant: 1,
         }
         carroShop.push(elemtSelected)
-        pushCarroHead()
+    }
+    pushCarroHead()
+});
+
+//Push head
+function pushCarroHead(){
+    sectionCarroHead.innerHTML = ""; // en blanco
+    //fragment
+    fragmentCarroHead = document.createDocumentFragment();    
+    //desglozado
+    carroShop.forEach(card =>{
+        const cloneHead = templateShopMuenu.cloneNode(true);
+        cloneHead.getElementById('cardImgShopMuenu').setAttribute("src", card.img);
+        cloneHead.getElementById('cardImgShopMuenu').setAttribute("height", "150px")
+        cloneHead.getElementById('cardTitleShopMuenu').textContent = card.title;
+        cloneHead.getElementById('cardVineriaShopMuenu').textContent = card.vineria;
+        cloneHead.getElementById('cardFromShopMuenu').textContent = card.origen;
+        cloneHead.getElementById('cardRatingShopMuenu').textContent =  card.rating;
+        cloneHead.getElementById('carrucelPrecioShopMuenu').textContent = card.precio;
+        fragmentCarroHead.appendChild(cloneHead)
+    });    
+    sectionCarroHead.appendChild(fragmentCarroHead);
+}
+
+
+// CARRITO HEAD SHOW
+carritoHead.addEventListener('click', (e) => {
+    const btnEliminarHead = e.target.closest('.btn-carro-eliminar');
+    const montoTotalHead = document.getElementById('montoTotalHead');
+    const cantidadTotalHead = document.getElementById('cantidadTotalHead');
+    
+    if ((e.target === carritoHead) || (e.target === carritoHeadImg) || (e.target === carritoHeadH)) {
+        carroHeadShow.classList.toggle('display-none')
+        //acualizacion datos
+        cantidadTotalHead.textContent = `${carroShop.length}`
+        montoTotalHead.textContent = `${calcularTotalCarrito()}`
+    }
+    if (btnEliminarHead) {
+        const elementDelete = e.target.closest('.card-contein')
+        const titleDelete = elementDelete.querySelector('.title-card').textContent;
+        // indice eliminado
+        const indexToDelete = carroShop.findIndex(vino => vino.title === titleDelete);
+        // Eliminar del array
+        if (indexToDelete !== -1) {
+            carroShop.splice(indexToDelete, 1);
+        }
+        // Eliminar del DOM
+        e.target.closest('.card-contein').remove();
+        //acualizacion datos
+        cantidadTotalHead.textContent = `${carroShop.length}`
+        montoTotalHead.textContent = `${calcularTotalCarrito()}`
     }
 });
 
+// //ocultar el carrito
+carroHeadShow.addEventListener('mouseleave', () => {
+    carroHeadShow.classList.add('display-none');
+});
 
-//carro header show
-const carroHeadShow = document.getElementById('carroHeadShow');
-carroHeadShow.addEventListener('click', ()=>{
-    carroHeadShow.classList.remove('display-none')
 
-})
-
-function pushCarroHead(){
-    const sectionCarroHead = document.getElementById('sectionCarroHead');
-    sectionCarroHead.innerHTML = "";
-    
-    fragmentCarroHead = document.createDocumentFragment();
-    
-    const cloneHead = template.cloneNode(true);
-    cloneHead.getElementById('cardImg').setAttribute("src", carroShop[0].img);
-    cloneHead.getElementById('cardTitle').textContent = carroShop[0].title;
-
-    fragmentCarroHead.appendChild(cloneHead)
-    
-    sectionCarroHead.appendChild(fragmentCarroHead)
-
+function calcularTotalCarrito() {
+    let total = 0;
+    for (const vino of carroShop) {
+        // Eliminar puntos y convertir a num
+        const precioNumerico = parseFloat(vino.precio.replace(/\./g, '').replace(',', '.'));
+        // Verificar
+        if (!isNaN(precioNumerico)) {
+            total += precioNumerico;
+        }
+    }
+    // Devuelve total
+    return Intl.NumberFormat().format(total);
 }
+
+
+
+
+/* 
+//---------------------------------------------------------------------
+//NAV SHOP
+//---------------------------------------------------------------------
+ */
+navWines.addEventListener('click', (e) => {
+    e.preventDefault();
+    conteinPrimary.innerHTML = ""//boora contenido
+    wineType = e.target.id; // Obtener el id
+    const newUrl = 'https://api.sampleapis.com/wines/' + wineType;
+    fetchData(newUrl) //carga primero el documento
+    datos(data);
+});

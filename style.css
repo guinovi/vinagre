@@ -37,50 +37,171 @@ body{
 /* title y logo */
 .header .title-secction{
     padding: 10px 0;
-    padding-bottom: 1px0px;
-    display: flex;
-    justify-content: center;
+    padding-bottom: 1px 0px;
+    display: block;
 }
-.header .title-secction .title{
+.header .title-secction .logo-and-title{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.header .title-secction .logo-and-title .title{
     padding-top: 1%;
     font-family: 'Josefin Slab', serif;
     text-align: center;
     font-size: 4.5em;
     display: inline;
 }
-.header .title-secction .logo-img{
+.header .title-secction .logo-and-title .logo-img{
     max-height: 80px;
     opacity: 0.8;
     border-radius: 30%;
     display: inline;
 }
+
+
+        /* CARRITO HEAD  */
+
 .header .title-secction .carrito-section-head{
-    position: absolute;
-    right: 20px;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    align-self: center;
+    float: right;
+    margin: 50px 10px 0 0;
+    font-size: 1.3em;
     gap: 10px;
     cursor: pointer;
 }
-
-
 .header .title-secction .carrito-head{
-    max-height: 35px;
+    max-height: 30px;
+}
+.header .title-secction .carrito-h{
+    display: inline;
 }
 
+ /* COMPRAS  */
 .header .title-secction .carro-all-coonten{
-    position: absolute;
-    top: 300px;
-    right: 100px;
-    max-width: 600px;
-    background-color: #FF3D00;
+    position: relative;
 }
 
-.header .title-secction .carrucel-carro-contein{
-    display: none;
+.header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head{
+    max-height: 270px;
+    padding: 7px 10px;
+    border: outset 1px white;
+    width: 450px;
+    font-weight: 600;
+    color: rgb(95, 35, 35);
 }
+
+.header .title-secction .carro-all-coonten .section-vinos-head{
+    position: absolute;
+    float: left;
+    right: 1px;
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: rgba(228, 219, 198, 0.9);
+}
+
+/* .header .title-secction .carro-all-coonten {
+    display: flex;
+    position: relative;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head {
+    flex: 1;
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: rgba(228, 219, 198, 0.9);
+    position: absolute;
+    right: 1px;
+} */
+
+
+
+.header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
+    height: 270px;
+    padding: 7px 5px;
+    border: outset 4px white;
+    width: 450px;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .img-card{
+    height: 150px;
+    max-height: 150px;
+    width: auto;
+    float: left;
+}
+
+
+
+.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
+    padding: 10px 0px;
+    font-size: .9em;
+    font-weight: 550;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .title-card{
+    font-size: 1em;
+    border-bottom: solid 1px;
+    padding: 5px 0px;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel{
+    margin-top: 8px;
+    font-weight: 600;
+} 
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel span{
+    display: inline;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar{
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 5px;
+    color: #660404;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar:hover{
+    background-color: white;
+    padding: 10px 0;
+    margin: 0 10%;
+}
+
+/* total $  */
+.header .title-secction .carro-all-coonten .section-vinos-head .total-precio-contein-head{
+    max-height: 270px;
+    padding: 7px 10px;
+    border: outset 1px white;
+    width: 450px;
+    font-weight: 600;
+    color: rgb(64, 58, 58);
+}
+
+
+/* .header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar div{
+    align-self: end;
+} */
+
+/* .header .title-secction .carro-all-coonten .section-vinos-head .img-card,
+.header .title-secction .carro-all-coonten .section-vinos-head #carroHeadShow .img-card {
+    height: 150px !important;
+    max-height: 150px !important;
+    width: auto !important;
+} */
+
+/* 
+.header .title-secction .carro-all-coonten .section-vinos-head .title-vineria{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .card-from{
+    font-size: 0.8em;
+}
+.header .title-secction .carro-all-coonten .section-vinos-head .card-point{
+    font-size: 0.8em;
+}
+*/
 
 
 /* nav */
@@ -175,6 +296,18 @@ body{
     gap: 10px;
 }
 
+/* index-shop btn CENTRO*/
+.index-shop .btn-shop-index{
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+}
+.index-shop .btn-shop-index a{
+    display: inline;
+    border: solid 2px;
+    border-radius: 10%;
+    padding: 10px;
+}
 
 /* index-shop CARRUSEL */
 .index-shop .carrusel{
@@ -182,37 +315,6 @@ body{
     flex-wrap: nowrap;
     overflow: hidden;
     height: 500px;
-    /* position: relative; */
-}
-
-/* .index-shop .carrusel::before{
-    content: "<";
-    font-size: 3em;
-    color: red;
-    position: fixed;
-
-} */
-
-.index-shop .carrusel .card-contein{
-    align-self: center;
-    width: 300px;
-    flex: 1 0 auto;
-}
-.index-shop .carrusel .card-contein:hover{
-    transform: scale(1.1);
-}
-.index-shop .carrusel .card-contein *{
-    margin: 5px 0px;
-}
-.index-shop .carrusel .card-from,
-.index-shop .carrusel .card-point{
-    display: none;
-}
-.index-shop .carrusel .precio-contein-carrucel{
-    display: block;
-    margin: 0 auto;
-    font-weight: 600;
-    color: #660404;
 }
 
 /* carrucel btn  */
@@ -240,14 +342,40 @@ body{
 .index-shop .carrucel-left{
     left: 10px;
 }
+/* carrucel cards */
+.index-shop .carrusel .card-contein{
+    align-self: center;
+    width: 300px;
+    flex: 1 0 auto;
+}
+.index-shop .carrusel .card-contein:hover{
+    transform: scale(1.1);
+}
+.index-shop .carrusel .card-contein *{
+    margin: 5px 0px;
+}
+.index-shop .carrusel .card-from,
+.index-shop .carrusel .card-point{
+    display: none;
+}
+.index-shop .carrusel .precio-contein-carrucel{
+    margin: 0 auto;
+    font-weight: 600;
+    color: #660404;
+}
 
-.index-shop .carrucel-carro-contein{
+.index-shop .carrusel .precio-contein-carrucel span{
+    display: inline;
+}
+
+
+.index-shop .carrusel .carrucel-carro-contein{
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
-.carrucel-carro-contein:hover::after{
+.index-shop .carrusel .carrucel-carro-contein:hover::after{
     content: "Añadir al carrito";
     margin-left: 10px;
 }
@@ -277,68 +405,6 @@ body{
     box-sizing: border-box;
     animation: rotacion 1s linear infinite;
 }
-
-  
-/* ========================= 
-        SHOP 
-=========================*/
-/* LOADING  */
-.slider-shop .loadin{
-    text-align: center;
-    margin-top: 10%;
-}
-.slider-shop .loadin-obj{
-    width: 48px;
-    height: 48px;
-    border: 5px solid;
-    border-color: #FF3D00 transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotacion 1s linear infinite;
-}
-
-/* nav vinos */
-.slider-shop .nav-wins{
-    background-color: rgb(115, 95, 50);
-}
-.slider-shop .list-wins{
-    border-radius: 15%;
-    padding: 1% 0%;
-}
-/* Contein */
-.slider-shop .contein-primary{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    gap: 1em;
-}
-
-/* index-shop btn */
-
-.index-shop .btn-shop-index{
-    display: flex;
-    justify-content: center;
-    margin: 15px auto;
-}
-.index-shop .btn-shop-index a{
-    display: inline;
-    border: solid 2px;
-    border-radius: 10%;
-    padding: 10px;
-}
-
-@keyframes rotacion {
-0% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(360deg);
-}
-}
-
-
-
-
 
 /*========================= 
         FOOTER 
@@ -385,4 +451,96 @@ body{
 .img-card{
     max-height: 300px;
     min-height: 250px;
+}
+
+
+
+/* ========================= 
+        SHOP 
+=========================*/
+/* LOADING  */
+.contein-shop .slider-shop .loadin{
+    text-align: center;
+    margin-top: 10%;
+}
+.contein-shop .slider-shop .loadin-obj{
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotacion 1s linear infinite;
+}
+@keyframes rotacion {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+
+/* NAV VINOS */
+.contein-shop .slider-shop .nav-wins{
+    /*  */
+}
+.contein-shop .slider-shop .list-wins{
+    padding: 10px;
+    background-color: #C69774;
+}
+/* Contein API */
+.contein-shop .slider-shop .contein-primary{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1em;
+    padding: 10px 15px;
+}
+
+/* cards */
+.contein-shop .contein-primary .card-contein{
+    align-self: center;
+    max-width: 300px;
+    flex: 1 0 auto;
+}
+.contein-shop .contein-primary .card-contein:hover{
+    transform: scale(1.1);
+}
+.contein-shop .contein-primary .card-contein *{
+    margin: 5px 0px;
+}
+.contein-shop .contein-primary .card-from,
+.contein-shop .contein-primary .card-point{
+    display: none;
+}
+.contein-shop .contein-primary .precio-contein-carrucel{
+    margin: 0 auto;
+    font-weight: 600;
+    color: #660404;
+}
+
+.contein-shop .contein-primary .precio-contein-carrucel span{
+    display: inline;
+}
+
+
+.contein-shop .contein-primary .carrucel-carro-contein{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.contein-shop .contein-primary .carrucel-carro-contein:hover::after{
+    content: "Añadir al carrito";
+    margin-left: 10px;
+}
+
+.contein-shop .contein-primary .carrucel-carro-contein:hover{
+    background-color: #e27171ad;
+    font-size: 1.2em;
+    padding: 2px;
+}
+.contein-shop .contein-primary .carrucel-carro-contein .carro-carrucel-img{
+    max-width: 30px;
 }
