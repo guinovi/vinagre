@@ -62,19 +62,25 @@ const datos = (data) => {
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
 
-
+    const isImageValid = (url) => {
+        // Verifica si la extensión es .png
+        return /\.png$/i.test(url);
+    };
     data.forEach(element => {
         const point = element.rating.average;
         const clone = template.cloneNode(true);
         const cloneDos = template.cloneNode(true);
         const imgWidth = getImageWidth(element.image);
-        if (imgWidth >= 60 && imgWidth <= 100) {
+
+        if (imgWidth >= 60 && imgWidth <= 100 && isImageValid(element.image)) {
             // Clon Shop
             clone.getElementById('cardImg').setAttribute("src", element.image);
             clone.getElementById('cardTitle').textContent = element.wine;
             clone.getElementById('cardVineria').textContent = element.winery;
             clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
             clone.getElementById('cardRating').textContent = `Rating: ${point}`;
+            clone.getElementById('carrucelPrecio').textContent =`${Intl.NumberFormat().format(numAleatorio())}`;
+
             // CLON CARRUSEL
             cloneDos.getElementById('cardImg').setAttribute("src", element.image);
             cloneDos.getElementById('cardTitle').textContent = element.wine;
@@ -86,11 +92,12 @@ const datos = (data) => {
             fragment.appendChild(clone);
             fragmentDos.appendChild(cloneDos);
         }
-        
     });
+
     conteinPrimary.appendChild(fragment);
     carrucel.appendChild(fragmentDos);
-}
+};
+
 
 //Cargando....  
 const loading = (estado) =>{
@@ -108,7 +115,7 @@ const loading = (estado) =>{
     }
 }
 
-//index - CARRUSEL
+//CARRUSEL - play
 function autoScroll() {
     const interval = setInterval(() => {
         carrucel.scrollLeft = carrucel.scrollLeft + 2;
@@ -118,16 +125,16 @@ function autoScroll() {
 
 let interval = autoScroll();
 
-//STOP carrcuel
+//CARRUSEL - STOP
 carrucel.addEventListener('mouseover', () => {
     clearInterval(interval);
 });
-//play carrucel
+//CARRUSEL - play Out
 carrucel.addEventListener('mouseout', () => {
     interval = autoScroll();
 });
 
-//botones izq y der carrucel
+//CARRUSEL - botones izq y der
 btnCarrucelLeft.addEventListener('click', ()=>{
     carrucel.scrollLeft = carrucel.scrollLeft - 100;
 })
@@ -234,18 +241,54 @@ function calcularTotalCarrito() {
 }
 
 
-
-
 /* 
 //---------------------------------------------------------------------
 //NAV SHOP
 //---------------------------------------------------------------------
  */
-navWines.addEventListener('click', (e) => {
+navWines.addEventListener('click', async (e) => {
     e.preventDefault();
     conteinPrimary.innerHTML = ""//boora contenido
     wineType = e.target.id; // Obtener el id
     const newUrl = 'https://api.sampleapis.com/wines/' + wineType;
-    fetchData(newUrl) //carga primero el documento
-    datos(data);
+
+    try {
+        loading(true); //loading...
+        const res = await fetch(newUrl);
+        const data = await res.json();
+        datos(data); // Llena el contenido
+    } catch (error) {
+        console.log(error);
+    } finally {
+        loading(false); // Oculta el estado de carga
+    }
+});
+
+
+
+
+conteinPrimary.addEventListener('click', (e) => {
+    const targetElement = e.target.closest('.carrucel-carro-contein');
+
+    if (targetElement) {
+        const card = targetElement.closest('.card-contein');// COntein        
+        const imgSrc = card.querySelector('.img-card').src;
+        const title = card.querySelector('.title-card').textContent;
+        const vineria = card.querySelector('.title-vineria').textContent;
+        const origen = card.querySelector('.card-from').textContent;
+        const rating = card.querySelector('.card-point').textContent;
+        const precio = card.querySelector('.precio-carrucel').textContent;
+        //añadir a elementos
+        const elemtSelected = {
+            img: imgSrc,
+            title: title,
+            vineria: vineria,
+            origen: origen,
+            rating: rating,
+            precio: precio,
+            cant: 1,
+        }
+        carroShop.push(elemtSelected)
+    }
+    pushCarroHead()
 });

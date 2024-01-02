@@ -3,6 +3,7 @@
     box-sizing: border-box;
     font-family: 'Arvo', serif;
     font-family: 'Josefin Slab', serif;
+    letter-spacing: 3px;
 }
 
 .display-none{
@@ -16,6 +17,7 @@
 
 body{
     background-color: #EAD196;
+    /* background-color: #EEE7DA; */
 }
 
 .no-link a:link, a:visited, a:active {
@@ -30,15 +32,24 @@ body{
         HEADER 
 ========================= */
 .header{
-    border-bottom: solid 1px;
-    background-color: rgba(204, 126, 66, 0.4);
+    /* border-bottom: solid 1px; */
+    /* background-color: #cc7e4266; */
+    
+    /* background-color: #092635b3; */
     width: 100%;
+    /* color: white; */
+    /* background: rgb(76,116,89);
+    background: linear-gradient(180deg, rgba(76,116,89,1) 20%, rgba(100,145,115,1) 60%, rgba(175,200,173,1) 100%); */
+    /*  */
+    background: rgba(139, 85, 43, 0.2);
+    background: linear-gradient(180deg, #de8d4e 30%, rgba(204,126,66,1) 50%, #c69774 100%);
 }
 /* title y logo */
 .header .title-secction{
     padding: 10px 0;
     padding-bottom: 1px 0px;
     display: block;
+    opacity: 0.60;
 }
 .header .title-secction .logo-and-title{
     display: block;
@@ -51,6 +62,7 @@ body{
     text-align: center;
     font-size: 4.5em;
     display: inline;
+    letter-spacing: 10px;
 }
 .header .title-secction .logo-and-title .logo-img{
     max-height: 80px;
@@ -65,7 +77,7 @@ body{
 .header .title-secction .carrito-section-head{
     float: right;
     margin: 50px 10px 0 0;
-    font-size: 1.3em;
+    font-size: 1.5em;
     gap: 10px;
     cursor: pointer;
 }
@@ -97,25 +109,8 @@ body{
     max-width: 500px;
     max-height: 500px;
     overflow-y: auto;
-    background-color: rgba(228, 219, 198, 0.9);
+    background-color: rgba(228, 219, 198, 0.95);
 }
-
-/* .header .title-secction .carro-all-coonten {
-    display: flex;
-    position: relative;
-}
-
-.header .title-secction .carro-all-coonten .section-vinos-head {
-    flex: 1;
-    max-width: 500px;
-    max-height: 500px;
-    overflow-y: auto;
-    background-color: rgba(228, 219, 198, 0.9);
-    position: absolute;
-    right: 1px;
-} */
-
-
 
 .header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
     height: 270px;
@@ -130,7 +125,6 @@ body{
     width: auto;
     float: left;
 }
-
 
 
 .header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
@@ -205,9 +199,39 @@ body{
 
 
 /* nav */
-.list-main{
-    padding: 1% 0%;
-    background-color: #C69774
+.header .list-main{
+    font-size: 1.9em;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+
+    /* background-color: #C69774 */
+    /* background-color: #AFC8AD; */
+    /*  */
+    /* background: rgba(160, 187, 158, 0.5);
+    background: linear-gradient(180deg, rgba(160,187,158,1) 30%, rgba(212,219,207,1) 70%, rgba(238,231,218,1) 100%); */
+    /*  */
+    background: rgb(198,151,116, 1);
+    background: linear-gradient(180deg, rgb(247, 209, 180) 10%, rgba(203,167,89,1) 60%, rgba(234,209,150,1) 100%);
+}
+
+.header .list-main li{
+    flex: 1;
+    text-align: center;
+    padding: 1% 0;
+}
+
+.header .list-main li:hover{
+    font-weight: 550;
+    /* background: rgb(160,187,158); */
+    /* background: #c69774; */
+    background: rgb(203,167,89,1);
+
+    
+}
+.header .ul a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
 }
 
 
@@ -218,16 +242,7 @@ body{
     margin: 0 auto;
     width: 95vw;
 }
-.ul{
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    font-size: 1.5rem;
-}
-.ul a:link, a:visited, a:active {
-    text-decoration:none;
-    color: black;
-}
+
 
 /* =========================
         INDEX
@@ -458,6 +473,40 @@ body{
 /* ========================= 
         SHOP 
 =========================*/
+/* NAV VINOS */
+.contein-shop .slider-shop {
+    /* background-color: #e8d3ad; */
+    box-shadow: 0px 10px 20px black;
+    
+    background: rgb(234,209,150);
+    background: linear-gradient(90deg, rgba(234, 209, 150, 0.868) 5%, rgba(191,148,67,0.989233193277311) 50%, rgba(234,209,150,1) 95%);
+}
+.contein-shop .slider-shop .list-wins{
+    /* padding: 10px; */
+    /* background-color: #C69774; */
+    border-radius: 30%;
+    list-style: none;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-around;
+    }
+
+.contein-shop .slider-shop .list-wins li{
+    padding: 20px 0;
+    flex: 1;
+    text-align: center;
+    align-self: stretch;
+}
+
+.contein-shop .slider-shop .list-wins li:hover{
+    background: rgb(234,209,150);
+    box-shadow: 1px 1px 5px black inset;
+}
+
+.contein-shop .slider-shop .list-wins a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
+}
 /* LOADING  */
 .contein-shop .slider-shop .loadin{
     text-align: center;
@@ -480,21 +529,15 @@ body{
     100% {
         transform: rotate(360deg);
     }
-    }
+}
 
-/* NAV VINOS */
-.contein-shop .slider-shop .nav-wins{
-    /*  */
-}
-.contein-shop .slider-shop .list-wins{
-    padding: 10px;
-    background-color: #C69774;
-}
+
 /* Contein API */
 .contein-shop .slider-shop .contein-primary{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     gap: 1em;
+    row-gap: 2em;
     padding: 10px 15px;
 }
 
