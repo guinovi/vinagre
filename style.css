@@ -1,9 +1,12 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Arial Narrow', Arial, sans-serif;
     font-family: 'Arvo', serif;
-    font-family: 'Josefin Slab', serif;
-    letter-spacing: 3px;
+    /* font-family: 'Josefin Slab', serif; */
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-style: italic; */
+    letter-spacing: 2px;
 }
 
 .display-none{
@@ -16,8 +19,9 @@
 }
 
 body{
-    background-color: #EAD196;
+    /* background-color: #EAD196; */
     /* background-color: #EEE7DA; */
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
 }
 
 .no-link a:link, a:visited, a:active {
@@ -37,19 +41,14 @@ body{
     
     /* background-color: #092635b3; */
     width: 100%;
-    /* color: white; */
-    /* background: rgb(76,116,89);
-    background: linear-gradient(180deg, rgba(76,116,89,1) 20%, rgba(100,145,115,1) 60%, rgba(175,200,173,1) 100%); */
-    /*  */
-    background: rgba(139, 85, 43, 0.2);
-    background: linear-gradient(180deg, #de8d4e 30%, rgba(204,126,66,1) 50%, #c69774 100%);
+    background-image: radial-gradient( rgb(215, 222, 247) 5%, rgb(123, 161, 106) 100%);
 }
 /* title y logo */
 .header .title-secction{
     padding: 10px 0;
     padding-bottom: 1px 0px;
     display: block;
-    opacity: 0.60;
+    /* opacity: 0.60; */
 }
 .header .title-secction .logo-and-title{
     display: block;
@@ -77,20 +76,26 @@ body{
 .header .title-secction .carrito-section-head{
     float: right;
     margin: 50px 10px 0 0;
-    font-size: 1.5em;
     gap: 10px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+
+
 }
 .header .title-secction .carrito-head{
     max-height: 30px;
 }
 .header .title-secction .carrito-h{
     display: inline;
+    color: white;
+    font-size: 1.2em;
+
 }
 
  /* COMPRAS  */
 .header .title-secction .carro-all-coonten{
     position: relative;
+
 }
 
 .header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head{
@@ -109,11 +114,11 @@ body{
     max-width: 500px;
     max-height: 500px;
     overflow-y: auto;
-    background-color: rgba(228, 219, 198, 0.95);
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
 }
 
 .header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
-    height: 270px;
+    min-height: 300px;
     padding: 7px 5px;
     border: outset 4px white;
     width: 450px;
@@ -200,7 +205,7 @@ body{
 
 /* nav */
 .header .list-main{
-    font-size: 1.9em;
+    font-size: 1.5em;
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -211,8 +216,11 @@ body{
     /* background: rgba(160, 187, 158, 0.5);
     background: linear-gradient(180deg, rgba(160,187,158,1) 30%, rgba(212,219,207,1) 70%, rgba(238,231,218,1) 100%); */
     /*  */
-    background: rgb(198,151,116, 1);
-    background: linear-gradient(180deg, rgb(247, 209, 180) 10%, rgba(203,167,89,1) 60%, rgba(234,209,150,1) 100%);
+    /* background: rgb(198,151,116, 1);
+    background: linear-gradient(180deg, rgb(247, 209, 180) 10%, rgba(203,167,89,1) 60%, rgba(234,209,150,1) 100%); */
+
+    background-image: linear-gradient(to bottom, rgb(168, 202, 186) 0%, rgb(204, 232, 229) 100%);
+
 }
 
 .header .list-main li{
@@ -225,7 +233,8 @@ body{
     font-weight: 550;
     /* background: rgb(160,187,158); */
     /* background: #c69774; */
-    background: rgb(203,167,89,1);
+    /* background: rgba(203, 167, 89, 0.3); */
+    background-color: rgb(204, 232, 229);
 
     
 }
@@ -332,8 +341,33 @@ body{
     height: 500px;
 }
 
-/* carrucel btn  */
+/* carrucel btn */
 .index-shop .carrucel-btn-img{
+    font-size: 4em;
+    font-weight: 500;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.index-shop .carrucel-left{
+    /* float: left; */
+    position: relative;
+    bottom: 300px;
+}
+.index-shop .carrucel-right{
+    position: relative;
+    bottom: 300px;
+    float: right;
+}
+
+.index-shop .carrucel-btn-img:hover {
+    background-color: #333333ab;
+}
+
+
+
+/* .index-shop .carrucel-btn-img{
     display: flex;
     position: absolute;
     top: 110%;
@@ -356,7 +390,7 @@ body{
 }
 .index-shop .carrucel-left{
     left: 10px;
-}
+} */
 /* carrucel cards */
 .index-shop .carrusel .card-contein{
     align-self: center;
@@ -426,10 +460,11 @@ body{
 ================================*/
 .footer{
     height: 20%;
-    background-color: #C69774;
+    /* background-color: #C69774; */
+    background-image: linear-gradient(to bottom, rgb(168, 202, 186) 0%, rgb(122, 163, 159) 100%);
 }
 
-.footer-contein{
+.footer .footer-contein{
     width: 95vw;
     margin: 0 auto;
     display: flex;
@@ -437,11 +472,16 @@ body{
     justify-content: space-between;
 }
 
-.footer-left .derechos{
+.footer .footer-left a {
+    padding: 5px 1px;
+    font-size: 1.2em;
+}
+
+.footer .footer-left .derechos{
     margin-top: 15px;
 }
 
-.footer-right {
+.footer .footer-right {
     align-self: end;
     display: flex;
     flex-direction: row;
@@ -449,7 +489,7 @@ body{
     margin-bottom: 10px;
 }
 
-.footer-right .fa{
+.footer .footer-right .fa{
     max-width: 30px;
     max-height: 30px;
 }
@@ -476,10 +516,15 @@ body{
 /* NAV VINOS */
 .contein-shop .slider-shop {
     /* background-color: #e8d3ad; */
-    box-shadow: 0px 10px 20px black;
-    
-    background: rgb(234,209,150);
-    background: linear-gradient(90deg, rgba(234, 209, 150, 0.868) 5%, rgba(191,148,67,0.989233193277311) 50%, rgba(234,209,150,1) 95%);
+    box-shadow: 0 0 15px black;
+    margin: 25px 0;
+    font-style: italic;
+    /* background: rgb(234,209,150);
+    background: linear-gradient(90deg, rgba(234, 209, 150, 0.868) 5%, rgba(191,148,67,0.989233193277311) 50%, rgba(234,209,150,1) 95%); */
+    /* background-image: linear-gradient(to right, rgba(148, 186, 168, 0.5) 0%, rgba(159, 124, 209, 0.4) 100%); */
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, rgb(195, 252, 209) 100%);
+
 }
 .contein-shop .slider-shop .list-wins{
     /* padding: 10px; */
@@ -489,6 +534,7 @@ body{
     font-size: 1.3em;
     display: flex;
     justify-content: space-around;
+
     }
 
 .contein-shop .slider-shop .list-wins li{
@@ -499,7 +545,7 @@ body{
 }
 
 .contein-shop .slider-shop .list-wins li:hover{
-    background: rgb(234,209,150);
+    background: rgba(148, 186, 168, 0.5);
     box-shadow: 1px 1px 5px black inset;
 }
 

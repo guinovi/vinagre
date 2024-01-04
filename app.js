@@ -101,17 +101,19 @@ const datos = (data) => {
 
 //Cargando....  
 const loading = (estado) =>{
-    const btnCarrucelLR = document.getElementById('btnCarrucelLR')
+    //const btnCarrucelLR = document.getElementById('btnCarrucelLR')
     const loading = document.getElementById('loading')
     if (estado) {
         conteinPrimary.classList.add('display-none');
-        btnCarrucelLR.classList.add('display-none')
+        btnCarrucelLeft.classList.add('display-none');
+        btnCarrucelRight.classList.add('display-none');
         loading.classList.remove('display-none');
 
     } else {
         conteinPrimary.classList.remove('display-none');
         loading.classList.add('display-none');
-        btnCarrucelLR.classList.remove('display-none');
+        btnCarrucelLeft.classList.remove('display-none');
+        btnCarrucelRight.classList.remove('display-none');
     }
 }
 
@@ -170,7 +172,7 @@ carrucel.addEventListener('click', (e) => {
     pushCarroHead()
 });
 
-//Push head
+//Push to head vinito
 function pushCarroHead(){
     sectionCarroHead.innerHTML = ""; // en blanco
     //fragment
