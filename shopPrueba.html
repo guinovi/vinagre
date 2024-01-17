@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autor" content="Guillermo Novillo">
+    <meta name="copyright" content="© 2006 MDC">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="La Vinagreta! venta de vinos online, al mejor precio, con envíos sin cargo y cuotas sin interes.">
+    <meta name="keywords" content="vinos, shop, venta online, envios sin cargo, cuotas sin interes, tajetas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/ca017385c2.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="./shop.css">
+    <link rel="shortcut icon" href="./app/media/img/ico.png" type="image/x-icon">
+    <title>La Vinagreta!</title>
+</head>
+<body>
+    <!-- HEADER  -->
+    <header id="navMain" class="header">
+        <div class="title-secction">
+            <div class="carrito-section-head" id="carritoHead">
+                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head" id="carritoHeadImg">
+                <h6 class="carrito-h" id="carritoHeadH">Mi Carro</h6>
+                
+                <div class="carro-all-coonten display-none" id="carroHeadShow">
+                    <div class="section-vinos-head">
+                        <div class="cantidad-contein-head">Cantidad en carrito: <span id="cantidadTotalHead"></span></div>
+                        <div class="" id="sectionCarroHead">
+                            <!-- Vinos agregados al carro -->
+                        </div>
+                        <div class="total-precio-contein-head">Total: $<span id="montoTotalHead"></span></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="logo-and-title">                
+                <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
+            </div>
+            
+        </div>
+       
+        <nav class="ul list-main">
+            <li><a id="webIndex" href="./index.html">Inicio</a></li>
+            <li><a id="webShop" href="./shop.html">Shop</a></li>
+            <li><a id="webServicios" href="#services">Servicios</a></li>
+            <li><a id="webContacto" href="./contacto.html">Contacto</a></li>
+        </nav>
+
+    </header>
+    
+    <!-- CONTENIDO  -->
+    <main class="contein contein-all" id="conteinAll">
+        <section class="index-contein">  
+            <!-- shop  -->
+            <div class="contein-shop">
+                <nav class="slider-shop ">
+                    <!-- reds (tintos), whites (blancos), sparkling (espumantes), rose (rosados), dessert (postre) y port (Oporto),  -->
+                    <div id="navWines" class="nav-wins">      
+                        <div class="ul list-wins">
+                            <li><a id="reds" href="#reds">Tintos</a></li>
+                            <li><a id="whites" href="#whites">Blancos</a></li>
+                            <li><a id="sparkling" href="#espumantes">Espumantes</a></li>
+                            <li><a id="rose" href="#rosados">Rosados</a></li>
+                            <li><a id="dessert" href="#postre">Postre</a></li>
+                            <li><a id="port" href="#oporto">Oporto</a></li>
+                        </div>                                
+                    </div>  
+
+
+                    <!-- loadin  -->
+                    <section class="loadin display-none" id="loading" >
+                        <h1>Cargando...</h1>
+                        <div class="loadin-obj"></div>
+                    </section>                    
+                        
+                    <section class="contein contein-primary" id="conteinPrimary">
+                            <!-- DATA API -->
+                    </section>
+                
+                </nav>
+            </div>
+            
+          
+            
+                 
+
+            <div class="section-err-js display-none">
+                <div id="carrucel"></div>
+                <div id="btnCarrucelLR"></div>
+                <div id="btnCarrucelLeft"></div>
+                <div id="btnCarrucelRight"></div>
+            </div>
+
+            
+           
+            
+
+      
+        </section>
+    </main>
+
+    <!-- FOOTER  -->
+    <footer class="footer">
+        <section class="footer-contein">
+            <div class="footer-top">
+                <div class="top-line-left"></div>
+                <i class="fa-brands fa-instagram fa-2x"></i>
+                <i class="fa-brands fa-facebook fa-2x"></i>
+                <i class="fa-brands fa-whatsapp fa-2x"></i>
+                <i class="fa-brands fa-youtube fa-2x"></i>
+                <i class="fa-brands fa-github fa-2x"></i>                    
+                <div class="top-line-right"></div>
+            </div>
+
+            <div class="footer-left flex-column">
+                <nav class="footer-links flex-column no-link">
+                    <a class="" href="./index.html">Inicio</a>
+                    <a href="./shop.html">Shop</a>
+                    <a href="#">Servicios</a>
+                    <a href="./contacto.html">Contacto</a>
+                </nav>
+            </div>
+    
+        </section>
+        <div class="derechos">La Vinagreta! &copy; 2015 | Todos los derechos reservados.</div>
+
+    </footer>
+
+    <!-- TEMPLATE -->
+    <template id="template">
+        <div id="cardPrimary" class="card card-contein contein">
+            <img id="cardImg" class="img img-card" src="" alt="imagen">
+            <h4 id="cardTitle" class="title title-card"></h4>
+            <p id="cardVineria" class="title title-vineria"></p>
+            <p id="cardFrom" class="card-from"></p>
+            <p id="cardRating" class="card-point"></p>
+            <div class="contein precio-contein-carrucel">
+                Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecio"></span>
+            </div>
+            <div class="carrucel-carro-contein" id="carroCarrucel">
+                <img src="./app/media/img/carrito-de-compras.png" alt="add shop"  class="carro-carrucel-img">
+            </div>
+        </div>
+    </template>
+
+    <template id="templateShopMuenu">
+        <div id="cardPrimaryShopMuenu" class="card card-contein contein">
+            <img id="cardImgShopMuenu" class="img img-card" src="" alt="imagen">
+            <div class="texts-content-card-shop">
+                <h4 id="cardTitleShopMuenu" class="title title-card"></h4>
+                <p id="cardVineriaShopMuenu" class="title title-vineria"></p>
+                <p id="cardFromShopMuenu" class="card-from"></p>
+                <p id="cardRatingShopMuenu" class="card-point"></p>
+                <div class="contein precio-contein-carrucel">
+                    Precio: $<span class="precio precio-carrucel display-block" id="carrucelPrecioShopMuenu"></span>
+                </div>
+                <div id="btnEliminarShopMuenu" class="btn-carro-eliminar">
+                    <div>Eliminar</div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+    
+
+
+    <!-- <script src="./app.js"></script> -->
+    <script src="./prueba.js"></script>
+
+</body>
+
+</html>
