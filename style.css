@@ -474,10 +474,10 @@ body{
 =========================*/
 
 .contein-shop .slider-shop {
-    margin: 5px 0;
+    margin: 0;
     font-style: italic;
     min-height: 250px;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 /* NAV WINS */
@@ -691,16 +691,16 @@ body{
 /* VINOS OFF */
 .vinos-off-contein{
     margin: 0 auto;
-    background-color: #929CC7;
-    padding: 30px 0;
-    box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.54);
-    border-radius: 0 0 100px;
-
+    padding: 0 0 10px 0;
+    /* border-radius: 50px; */
+    /* box-shadow: 1px 10px 100px; */
+    /* background-color: rgba(150, 149, 149, 0.3); */
+    /* background-color: #d1d0d4; */
 }
 .vinooff-title{
     text-align: center ;
-    padding: 10px 0;
-    font-size: 1.4em;
+    padding: 1px 0;
+    font-size: 2em;
     color: #660404;
 }
 .vinos-off-contein #vinosEnoff{
@@ -722,8 +722,8 @@ body{
 }
 
 .vinos-off-contein .vinoEnoff .img-vino-off{
-    height: 200px;
-    width: 50px;
+    height: 150px;
+    width: auto;
     align-self: center;
 }
 
