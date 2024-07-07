@@ -39,7 +39,7 @@ body{
 }
 /* title y logo */
 .header .title-secction{
-    padding: 20px 0;
+    padding: 10px 0;
     display: block;
 }
 .header .title-secction .logo-and-title{
@@ -64,20 +64,16 @@ body{
     gap: 10px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
 
 
-}
-.header .title-secction .carrito-head{
-    max-height: 30px;
-}
-.header .title-secction .carrito-h{
-    display: inline;
-    /* font-size: 1.1em; */
-}
 
  /* COMPRAS  */
 .header .title-secction .carro-all-coonten{
     position: relative;
+    top: 10px;
 }
 
 .header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head{
@@ -167,14 +163,8 @@ body{
     list-style: none;
     display: flex;
     justify-content: space-around;
-    /* background-color: rgba(164, 180, 212, 0.55); */
-    /* background-color: #d1d0d4;  BODYYYYYYY*/
     background-color: white;
-    /* background-image: linear-gradient(to top, rgba(177, 185, 199, 0.75) 0%, rgba(86, 117, 161, 0.7) 100%); */
     background-image: linear-gradient(to top, #d1d0d4 0%, rgba(86, 117, 161, 0.7) 100%);
-
-
-
 }
 
 .header .list-main li{
@@ -202,7 +192,7 @@ body{
 ========================= */
 .contein-all{
     margin: 0 auto;
-    width: 95vw;
+    /* width: 95vw; */
 }
 
 
@@ -219,9 +209,8 @@ body{
     width: 100%;
     margin: auto;
     overflow: hidden;
-    border-bottom: solid 1px;
-    border-left: solid 1px;
-    border-right: solid 1px;
+    /* border-radius: 0 0 20px 20px; */
+    box-shadow: black 1px 3px 10px;
 }
 
 .slider ul {
@@ -290,11 +279,13 @@ body{
 
 /* index-shop CARRUSEL */
 .index-shop .carrusel{
+    margin: 0 auto;
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
     height: 500px;
     gap: 20px;
+    max-width: 95vw;
 }
 
 /* carrucel btn */
@@ -312,11 +303,13 @@ body{
 .index-shop .carrucel-left{
     position: relative;
     bottom: 300px;
+    left: 15px;
 }
 .index-shop .carrucel-right{
     position: relative;
     bottom: 300px;
     float: right;
+    right: 15px;
 }
 
 .index-shop .carrucel-btn-img:hover {
@@ -479,25 +472,29 @@ body{
 /* ========================= 
         SHOP 
 =========================*/
-/* NAV VINOS */
+
 .contein-shop .slider-shop {
     margin: 5px 0;
     font-style: italic;
-    background-color: whitesmoke;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    min-height: 250px;
+    padding-top: 30px;
+}
+
+/* NAV WINS */
+.contein-shop .slider-shop .nav-wins{
+    margin: 0;
+    float: left;
+    width: 150px;
 }
 .contein-shop .slider-shop .list-wins{
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .contein-shop .slider-shop .list-wins li{
-    padding: 20px 0;
-    flex: 1;
-    text-align: center;
-    transition: 0.2s linear;
-    display: block;
+    padding: 10px 0;
 }
 
 .contein-shop .slider-shop .list-wins li a{
@@ -505,12 +502,8 @@ body{
 }
 
 .contein-shop .slider-shop .list-wins li:hover{
-    /* background: rgba(155, 166, 161, 0.2); */
-    /* box-shadow: 1px 1px 5px black inset; */
-    transform: scale(1.2);
 
 }
-
 
 .contein-shop .slider-shop .list-wins a:link, a:visited, a:active {
     text-decoration:none;
@@ -547,7 +540,9 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     gap: 1em;
     row-gap: 2em;
+    border-left: 1px solid;
     padding: 10px 15px;
+
 }
 
 /* cards */
@@ -563,6 +558,11 @@ body{
 .contein-shop .contein-primary .card-contein *{
     margin: 5px 0px;
 }
+
+.contein-shop .contein-primary .card-contein .img-card{
+    height: 150px;
+}
+
 .contein-shop .contein-primary .card-from,
 .contein-shop .contein-primary .card-point{
     display: none;
@@ -682,3 +682,67 @@ body{
     
 }
     
+
+
+
+
+
+
+/* VINOS OFF */
+.vinos-off-contein{
+    margin: 0 auto;
+    background-color: #929CC7;
+    padding: 30px 0;
+    box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.54);
+    border-radius: 0 0 100px;
+
+}
+.vinooff-title{
+    text-align: center ;
+    padding: 10px 0;
+    font-size: 1.4em;
+    color: #660404;
+}
+.vinos-off-contein #vinosEnoff{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+
+.vinos-off-contein .vinoEnoff{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.vinos-off-contein .vinoEnoff .img-vino-off{
+    height: 200px;
+    width: 50px;
+    align-self: center;
+}
+
+.vinos-off-contein .vinoEnoff .nombre-vino-off{
+    max-width: 300px;
+    font-weight: 500;
+}
+
+.vinos-off-contein .vinoEnoff .vineria-vino-off{
+    /* max-width: 100px; */
+    font-style: italic;
+
+}
+.vinos-off-contein .vinoEnoff .origen-vino-off{
+    display: none;
+}
+.vinos-off-contein .vinoEnoff .rating-vino-off{
+    display: none;
+}
+.vinos-off-contein .vinoEnoff .precio-vino-off{
+    color: rgb(97, 45, 45);
+}

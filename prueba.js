@@ -28,6 +28,7 @@ const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
 
 
 const carroShop = [];
+const seleccionVinos = [];
 
 
 const fetchData = async(apiUrl) =>{
@@ -61,6 +62,11 @@ function numAleatorio() {
 const datos = (data) => {
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
+    
+    // Seleccionar vinos en el off 20-24
+    const vinosEnoff = data.slice(16, 20);
+    // Mostrar las características de los vinos en el off en un div aparte
+    mostrarVinosEnoff(vinosEnoff);
 
     const isImageValid = (url) => {
         // Verifica si la extensión es .png
@@ -253,7 +259,6 @@ navWines.addEventListener('click', async (e) => {
     conteinPrimary.innerHTML = ""//boora contenido
     wineType = e.target.id; // Obtener el id
     const newUrl = 'https://api.sampleapis.com/wines/' + wineType;
-
     try {
         loading(true); //loading...
         const res = await fetch(newUrl);
@@ -294,3 +299,33 @@ conteinPrimary.addEventListener('click', (e) => {
     }
     pushCarroHead()
 });
+
+
+
+// Función para mostrar las características de los vinos en el off
+function mostrarVinosEnoff(vinos) {
+    const divVinosEnoff = document.getElementById('vinosEnoff');
+
+    // Limpiar contenido anterior
+    divVinosEnoff.innerHTML = "";
+
+    // Crear elementos para cada vino en el off
+    vinos.forEach((vino, index) => {
+        const divVino = document.createElement('div');
+        divVino.classList.add('vinoEnoff');
+
+        // Agregar características del vino al div
+        const punto = vino.rating.average;
+        divVino.innerHTML = `
+            <img src="${vino.image}" alt="${vino.wine}" class="img-vino-off">
+            <p class="nombre-vino-off">${vino.wine} </p>
+            <p class="vineria-vino-off">${vino.winery}</p>
+            <p class="origen-vino-off">Origen: ${vino.location}</p>
+            <p class="rating-vino-off">Rating: ${punto}</p>
+            <p class="precio-vino-off">$ ${Intl.NumberFormat().format(numAleatorio())} </p>
+        `;
+
+        // Agregar el div del vino en el off al contenedor principal
+        divVinosEnoff.appendChild(divVino);
+    });
+}

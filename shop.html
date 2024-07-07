@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/ca017385c2.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,200" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Josefin+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
@@ -23,12 +25,14 @@
     <header id="navMain" class="header">
         <div class="title-secction">
             <div class="carrito-section-head" id="carritoHead">
-                <img style="max-width: 50px;" src="./app/media/img/carrito-de-compras-head.png" alt="logo" class="carrito-subsection carrito-head" id="carritoHeadImg">
+                <span class="material-symbols-outlined"  id="carritoHeadImg">
+                    shopping_cart
+                </span>
                 <h6 class="carrito-h" id="carritoHeadH">Mi Carro</h6>
                 
                 <div class="carro-all-coonten display-none" id="carroHeadShow">
                     <div class="section-vinos-head">
-                        <div class="cantidad-contein-head">Cantidad en carrito: <span id="cantidadTotalHead"></span></div>
+                        <div class="cantidad-contein-head">Cantidad en el carrito: <span id="cantidadTotalHead"></span></div>
                         <div class="" id="sectionCarroHead">
                             <!-- Vinos agregados al carro -->
                         </div>
@@ -38,12 +42,12 @@
                 </div>
             </div>
 
-            <div class="logo-and-title">                
+            <div class="logo-and-title">                      
                 <h1 class="title title-primary" id="titlePrimary">La Vinagreta</h1>
             </div>
             
         </div>
-       
+    
         <nav class="ul list-main">
             <li><a id="webIndex" href="./index.html">Inicio</a></li>
             <li><a id="webShop" href="./shop.html">Shop</a></li>
@@ -54,26 +58,32 @@
     </header>
     
     <!-- CONTENIDO  -->
+    <!-- Vins Off -->
+    <div class="vinos-off-contein">
+        <h3 class="vinooff-title">¡Nuestras ofertas!</h3>
+        <div id="vinosEnoff">
+            <!-- data -->
+        </div>
+    </div>
     <main class="contein contein-all" id="conteinAll">
         <section class="index-contein">  
             <!-- shop  -->
             <div class="contein-shop">
                 <nav class="slider-shop ">
+                    
+                    
                     <!-- reds (tintos), whites (blancos), sparkling (espumantes), rose (rosados), dessert (postre) y port (Oporto),  -->
-                    <div id="navWines" class="nav-wins">
-                        <hr>
-                        <ul class="ul list-wins">
+                    <div id="navWines" class="nav-wins">      
+                        <div class="ul list-wins">
                             <li><a id="reds" href="#reds">Tintos</a></li>
                             <li><a id="whites" href="#whites">Blancos</a></li>
                             <li><a id="sparkling" href="#espumantes">Espumantes</a></li>
                             <li><a id="rose" href="#rosados">Rosados</a></li>
                             <li><a id="dessert" href="#postre">Postre</a></li>
                             <li><a id="port" href="#oporto">Oporto</a></li>
-                        </ul>
-                        <hr>
+                        </div>                                
                     </div>  
-
-
+                
                     <!-- loadin  -->
                     <section class="loadin display-none" id="loading" >
                         <h1>Cargando...</h1>
