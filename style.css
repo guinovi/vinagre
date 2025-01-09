@@ -56,110 +56,127 @@ body{
     letter-spacing: 10px;
 }
 
-
-/* CARRITO HEAD  */
-.header .title-secction .carrito-section-head{
+/*========================= 
+        CARRITO HEAD
+================================*/
+.header .title-secction .carrito-section-head {
     float: right;
-    margin: 50px 10px 0 0;
+    margin: 20px 10px 0 0;
     gap: 10px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-
-
 }
-.header .title-secction .carrito-head{
+
+.header .title-secction .carrito-head {
     max-height: 30px;
 }
-.header .title-secction .carrito-h{
+
+.header .title-secction .carrito-h {
     display: inline;
-    /* font-size: 1.1em; */
 }
 
- /* COMPRAS  */
-.header .title-secction .carro-all-coonten{
+/* Contenedor principal del carrito */
+.header .title-secction .carro-all-coonten {
     position: relative;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head{
-    max-height: 270px;
-    padding: 7px 10px;
-    border: outset 1px white;
-    width: 450px;
-    font-weight: 600;
-    color: rgb(95, 35, 35);
-}
-
-.header .title-secction .carro-all-coonten .section-vinos-head{
+.header .title-secction .carro-all-coonten .section-vinos-head {
     position: absolute;
-    float: left;
     right: 1px;
-    max-width: 500px;
-    max-height: 500px;
+    min-width: 300px;
+    max-height: 400px;
     overflow-y: auto;
     background-color: rgba(195, 195, 195, 0.95);
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .card-contein{
-    min-height: 300px;
-    padding: 7px 5px;
-    border: outset 4px white;
-    width: 450px;
+/* Card individual */
+.header .title-secction .carro-all-coonten .section-vinos-head .card-contein {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .img-card{
-    height: 150px;
-    max-height: 150px;
-    width: auto;
-    float: left;
+.header .title-secction .carro-all-coonten .section-vinos-head .img-card {
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
-
-.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop{
-    padding: 10px 0px;
-    font-size: .9em;
-    font-weight: 550;
+.header .title-secction .carro-all-coonten .section-vinos-head .texts-content-card-shop {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    font-size: 0.9em;
+    font-weight: 550;
+    gap: 5px;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .title-card{
+.header .title-secction .carro-all-coonten .section-vinos-head .title-card {
     font-size: 1em;
-    border-bottom: solid 1px;
-    padding: 5px 0px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel{
-    margin-top: 8px;
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel {
+    margin-top: 5px;
     font-weight: 600;
-} 
-.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel span{
+    color: #444;
+}
+
+.header .title-secction .carro-all-coonten .section-vinos-head .precio-contein-carrucel span {
     display: inline;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar{
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar {
     font-weight: bold;
     margin-top: 5px;
     padding: 5px;
     color: #660404;
-    transition: .5s linear;
+    background-color: transparent;
+    border: 1px solid #660404;
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
-.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar:hover{
-    background-color: white;
-    padding: 10px 0;
-    margin: 0 10%;
+.header .title-secction .carro-all-coonten .section-vinos-head .btn-carro-eliminar:hover {
+    background-color: #660404;
+    color: #fff;
 }
 
-/* total $  */
-.header .title-secction .carro-all-coonten .section-vinos-head .total-precio-contein-head{
+/* Total */
+.header .title-secction .carro-all-coonten .section-vinos-head .total-precio-contein-head {
     max-height: 270px;
-    padding: 7px 10px;
-    border: outset 1px white;
-    width: 450px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     font-weight: 600;
     color: rgb(64, 58, 58);
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+.header .title-secction .carro-all-coonten .section-vinos-head .cantidad-contein-head {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-weight: 600;
+    color: rgb(95, 35, 35);
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
 
 /* nav */
 .header .list-main{
@@ -401,11 +418,13 @@ body{
 /*========================= 
         FOOTER 
 ================================*/
-.footer{
+.footer {
     padding: 15px 0;
     background-image: linear-gradient(to bottom, #b1b9c7 0%, #67768b 100%);
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
-.footer .footer-contein{
+.footer .footer-contein {
     max-width: 1360px;
     width: 95vw;
     margin: 0 auto;
@@ -414,53 +433,74 @@ body{
 
 .footer .footer-contein .footer-top {
     text-align: center;
-    padding: 5px;
-}
-.footer .footer-contein .footer-top .top-line-left{
-    float: left;
-    border-bottom: black solid 1px;
-    width: 33vw;
-    position: relative;
-    top: 10px;
-    max-width: 400px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.footer .footer-contein .footer-top .top-line-right{
-    float: right;
-    border-bottom: black solid 1px;
-    width: 33vw;
-    position: relative;
-    top: 10px;
-    max-width: 400px;
-}
-
-
-.footer .footer-contein .footer-top i{
+.footer .footer-contein .footer-top .top-line-left,
+.footer .footer-contein .footer-top .top-line-right {
+    flex: 1;
+    height: 1px;
+    background-color: black;
     margin: 0 10px;
 }
 
-.footer .footer-left{
-    margin: 15px 0;
+.footer .footer-contein .footer-top i {
+    margin: 0 10px;
+    color: #fff;
+    transition: color 0.3s ease;
 }
 
-.footer .footer-left .footer-links{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-}
-.footer .footer-left a{
-    padding: 5px 1px;
-    font-size: 1.2em;
-
+.footer .footer-contein .footer-top i:hover {
+    color: #ffd700;
 }
 
-
-.footer .derechos{
-    display: block;
+.footer .footer-left {
+    margin: 20px 0;
     text-align: center;
-    padding: 5px 0;
-    color: rgb(72, 69, 69);
+}
+
+.footer .footer-left .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .footer-left a {
+    padding: 5px 10px;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-left a:hover {
+    color: #ffd700;
+}
+
+.footer .derechos {
+    text-align: center;
+    padding: 10px 0;
+    color: #e0e0e0;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .footer .footer-contein .footer-top {
+        /* flex-direction: column; */
+    }
+
+    .footer .footer-contein .footer-top .top-line-left,
+    .footer .footer-contein .footer-top .top-line-right {
+        display: none;
+    }
+
+    .footer .footer-left .footer-links {
+        flex-direction: row;
+    }
 }
 
 /* ========================= 
@@ -682,3 +722,6 @@ body{
     
 }
     
+
+
+
