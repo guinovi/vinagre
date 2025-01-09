@@ -305,7 +305,7 @@ conteinPrimary.addEventListener('click', (e) => {
 
 
 
-// Función para mostrar las características de los vinos en el off
+// caractersticas de los vinos en el off
 function mostrarVinosEnoff(vinos) {
     const divVinosEnoff = document.getElementById('vinosEnoff');
 

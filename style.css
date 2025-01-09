@@ -516,11 +516,95 @@ body{
 
 
 
+
+/* ========================= 
+        CONTACTO 
+=========================*/
+
+
+.container-contact {
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 20px 20px;
+    margin: 30px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+    
+.container-contact .columna {
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.container-contact .row-contein:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container-contact .row-contein .contact-map{
+    max-width: 100%;
+}
+
+.container-contact input,
+.container-contact select,
+.container-contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+}
+
+.container-contact input[type="submit"] {
+    background-color: #04aa6d;
+    color: whitesmoke;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container-contact input[type="submit"]:hover {
+    background-color: #45a049;
+    color: whitesmoke;
+}
+
+.container-contact label {
+    font-weight: bold;
+}
+
+.container-contact .icon-contact {
+    text-align: center;
+    padding: 5vh 0;
+    margin-right: 10px;
+}
+
+.container-contact .icon-contact .fa{
+    margin: 2vw;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.container-contact .contact-title {
+/*  */
+}
+
+
+@media only screen and (max-width: 900px) {
+    
+}
+    
+
+
+
 /* ========================= 
         SHOP 
 =========================*/
 /* NAV VINOS */
-.contein-shop .slider-shop {
+/* .contein-shop .slider-shop {
     margin: 5px 0;
     font-style: italic;
     background-color: whitesmoke;
@@ -545,17 +629,67 @@ body{
 }
 
 .contein-shop .slider-shop .list-wins li:hover{
-    /* background: rgba(155, 166, 161, 0.2); */
-    /* box-shadow: 1px 1px 5px black inset; */
     transform: scale(1.2);
-
 }
 
 
 .contein-shop .slider-shop .list-wins a:link, a:visited, a:active {
     text-decoration:none;
     color: black;
+} */
+
+* Barra de navegación de vinos */
+.nav-wins {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    margin: 0;
+    position: relative; /* Asegura que no se solape con otros elementos */
+    z-index: 10; /* Coloca la barra encima de otros elementos si es necesario */
 }
+
+.nav-wins .list-wins {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-wins .list-wins li {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-wins .list-wins li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nav-wins .list-wins li:hover {
+    background-color: #eaeaea;
+    transform: scale(1.1);
+}
+
+.nav-wins .list-wins li a:link,
+.nav-wins .list-wins li a:visited {
+    color: #333;
+}
+
+.nav-wins .list-wins li a:hover {
+    color: #660404; /* Color destacado al pasar el mouse */
+}
+
+
+
+
+
+
 /* LOADING  */
 .contein-shop .slider-shop .loadin{
     text-align: center;
@@ -642,86 +776,61 @@ body{
 
 
 
-/* ========================= 
-        CONTACTO 
-=========================*/
-
-
-.container-contact {
-    border-radius: 5px;
-    background-color: whitesmoke;
-    padding: 20px 20px;
-    margin: 30px 0;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+/* VINOS OFF */
+.vinos-off-contein{
+    margin: 0 auto;
+    padding: 0 0 10px 0;
+    /* border-radius: 50px; */
+    /* box-shadow: 1px 10px 100px; */
+    /* background-color: rgba(150, 149, 149, 0.3); */
+    /* background-color: #d1d0d4; */
 }
-    
-.container-contact .columna {
-    float: left;
-    width: 50%;
-    margin-top: 10px;
-    padding: 20px;
+.vinooff-title{
+    text-align: center ;
+    padding: 1px 0;
+    font-size: 2em;
+    color: #660404;
 }
-
-.container-contact .row-contein:after {
-    content: "";
-    display: table;
-    clear: both;
+.vinos-off-contein #vinosEnoff{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
 }
 
-.container-contact .row-contein .contact-map{
-    max-width: 100%;
-}
 
-.container-contact input,
-.container-contact select,
-.container-contact textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    border-radius: 5px;
-}
-
-.container-contact input[type="submit"] {
-    background-color: #04aa6d;
-    color: whitesmoke;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.container-contact input[type="submit"]:hover {
-    background-color: #45a049;
-    color: whitesmoke;
-}
-
-.container-contact label {
-    font-weight: bold;
-}
-
-.container-contact .icon-contact {
+.vinos-off-contein .vinoEnoff{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
     text-align: center;
-    padding: 5vh 0;
-    margin-right: 10px;
+    font-size: 0.9em;
 }
 
-.container-contact .icon-contact .fa{
-    margin: 2vw;
-    max-width: 40px;
-    max-height: 40px;
+.vinos-off-contein .vinoEnoff .img-vino-off{
+    height: 150px;
+    width: auto;
+    align-self: center;
 }
 
-.container-contact .contact-title {
-/*  */
+.vinos-off-contein .vinoEnoff .nombre-vino-off{
+    max-width: 300px;
+    font-weight: 500;
 }
 
+.vinos-off-contein .vinoEnoff .vineria-vino-off{
+    /* max-width: 100px; */
+    font-style: italic;
 
-@media only screen and (max-width: 900px) {
-    
 }
-    
-
-
-
+.vinos-off-contein .vinoEnoff .origen-vino-off{
+    display: none;
+}
+.vinos-off-contein .vinoEnoff .rating-vino-off{
+    display: none;
+}
+.vinos-off-contein .vinoEnoff .precio-vino-off{
+    color: rgb(97, 45, 45);
+}
