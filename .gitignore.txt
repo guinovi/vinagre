@@ -1,2 +1,6 @@
 #archivo prueba
-.prueba
+
+prueba.js
+shopPrueba.html
+shop.css
+links

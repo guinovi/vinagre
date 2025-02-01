@@ -1,17 +1,17 @@
 window.addEventListener('load', () => {
-    const url = 'https://api.sampleapis.com/wines/reds';
-    fetchData(url);
+    // const url = 'https://api.sampleapis.com/wines/reds';
+    fetchData();
 });
 
 
 
-const url = 'https://api.sampleapis.com/wines/reds';
+/* const url = 'https://api.sampleapis.com/wines/reds';
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchData(url) //carga primero el documento
 })
-
+ */
 
 const cardPrimary = document.getElementById('cardPrimary');// Card primary template
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
@@ -33,12 +33,12 @@ const seleccionVinos = [];
 const datosArray = []
 
 
-const fetchData = async(apiUrl) =>{
+const fetchData = async() =>{
     try {
         loading(true) // Cargando...
-        const res = await fetch(apiUrl);
+        const res = await fetch('./app/api/wines.json');
         const data = await res.json();
-        datos(data) //datos
+        datos(data.reds) //datos
         datosArray.push(data)
     } catch (error) {
         console.log(error)
@@ -46,6 +46,7 @@ const fetchData = async(apiUrl) =>{
         loading(false) // no display Cargando...
     }  
 }
+
 
 // Verifica el ancho de la imagen
 function getImageWidth(imageUrl) {
@@ -259,18 +260,25 @@ function calcularTotalCarrito() {
  */
 navWines.addEventListener('click', async (e) => {
     e.preventDefault();
-    conteinPrimary.innerHTML = ""//boora contenido
-    wineType = e.target.id; // Obtener el id
-    const newUrl = 'https://api.sampleapis.com/wines/' + wineType;
+    conteinPrimary.innerHTML = ""; // Borra contenido
+    // Busca  id
+    const wineTypeElement = e.target.closest('[id]');
+    if (!wineTypeElement) return;
+    const wineType = wineTypeElement.id; // Obtener el id
+    const newUrl = './app/api/wines.json';
     try {
-        loading(true); //loading...
+        loading(true); // Muestra loading...
         const res = await fetch(newUrl);
         const data = await res.json();
-        datos(data); // Llena el contenido
+        if (data[wineType]) {
+            datos(data[wineType]);
+        } else {
+            console.error(`No se encontró la propiedad ${wineType} en la data.`);
+        }
     } catch (error) {
         console.log(error);
     } finally {
-        loading(false); // Oculta el estado de carga
+        loading(false); // Oculta loading...
     }
 });
 
