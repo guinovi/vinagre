@@ -594,7 +594,33 @@ body{
 
 
 @media only screen and (max-width: 900px) {
-    
+
+    /*3 Icons*/
+    .contein-all .tres-icons {
+        margin: 10px;
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        font-size: 0.5em;
+    }
+
+    .contein-all .tres-icons hr {
+        border-color: black;
+    }
+
+    .contein-all .tres-icons img {
+        margin-top: 1px;
+        max-width: 30px;
+    }
+
+    .contein-all .tres-icons li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .img-icons {}
+
 }
     
 
