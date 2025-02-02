@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Arial Narrow', Arial, sans-serif;
@@ -6,48 +6,57 @@
     letter-spacing: 2px;
 }
 
-.display-none{
+.display-none {
     display: none;
 }
 
-.flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
 }
-.maxwidth{
+
+.maxwidth {
     max-width: 1360px;
     margin: 0 auto;
 }
-body{
+
+body {
     background-color: #d1d0d4;
 }
 
-.no-link a:link, a:visited, a:active {
-    text-decoration:none;
+.no-link a:link,
+a:visited,
+a:active {
+    text-decoration: none;
     color: black;
     list-style: none;
 }
-.display-block{
+
+.display-block {
     display: block;
 }
+
 /* ========================= 
         HEADER 
 ========================= */
-.header{
+.header {
     width: 100%;
     background-color: white;
 }
+
 /* title y logo */
-.header .title-secction{
+.header .title-secction {
     padding: 20px 0;
     display: block;
 }
-.header .title-secction .logo-and-title{
+
+.header .title-secction .logo-and-title {
     display: block;
     margin: 0 auto;
     text-align: center;
 }
-.header .title-secction .logo-and-title .title{
+
+.header .title-secction .logo-and-title .title {
     padding-top: 1%;
     font-family: 'Josefin Slab', serif;
     text-align: center;
@@ -69,6 +78,7 @@ body{
 
 .header .title-secction .carrito-head {
     max-height: 30px;
+
 }
 
 .header .title-secction .carrito-h {
@@ -78,6 +88,8 @@ body{
 /* Contenedor principal del carrito */
 .header .title-secction .carro-all-coonten {
     position: relative;
+    z-index: 2;
+
 }
 
 .header .title-secction .carro-all-coonten .section-vinos-head {
@@ -179,7 +191,7 @@ body{
 
 
 /* nav */
-.header .list-main{
+.header .list-main {
     font-size: 1em;
     list-style: none;
     display: flex;
@@ -194,22 +206,26 @@ body{
 
 }
 
-.header .list-main li{
+.header .list-main li {
     flex: 1;
     text-align: center;
     padding: 1% 0;
     transition: 0.5s linear;
 }
-.header .list-main li a{
+
+.header .list-main li a {
     display: block;
 }
 
-.header .list-main li:hover{
+.header .list-main li:hover {
     font-weight: 550;
     background-color: #92a9d5;
 }
-.header .ul a:link, a:visited, a:active {
-    text-decoration:none;
+
+.header .ul a:link,
+a:visited,
+a:active {
+    text-decoration: none;
     color: black;
 }
 
@@ -217,7 +233,7 @@ body{
 /* ========================= 
         CONTENIDO 
 ========================= */
-.contein-all{
+.contein-all {
     margin: 0 auto;
     width: 95vw;
 }
@@ -226,7 +242,7 @@ body{
 /* =========================
         INDEX
 ========================= */
-.index-contein{
+.index-contein {
     max-width: 1360px;
     margin-bottom: 15px;
 }
@@ -253,52 +269,73 @@ body{
     max-height: 300px;
     width: 100%;
 }
+
 .slider img {
     height: 100%;
-    width: 100%;  
+    width: 100%;
     object-fit: cover;
     object-position: 0% 50%;
 }
+
 @keyframes cambio {
-    0% {margin-left: 0;}
-    20% {margin-left: 0;}
-    
-    40% {margin-left: -100%;}
-    60% {margin-left: -100%;}
-    
-    80% {margin-left: -200%;}
-    100% {margin-left: -200%;}
+    0% {
+        margin-left: 0;
+    }
+
+    20% {
+        margin-left: 0;
+    }
+
+    40% {
+        margin-left: -100%;
+    }
+
+    60% {
+        margin-left: -100%;
+    }
+
+    80% {
+        margin-left: -200%;
+    }
+
+    100% {
+        margin-left: -200%;
+    }
 
 }
 
 /*3 Icons*/
-.contein-all .tres-icons{
+.contein-all .tres-icons {
     margin: 10px;
     display: flex;
     justify-content: space-around;
     list-style: none;
     font-size: 0.8em;
 }
-.contein-all .tres-icons hr{
+
+.contein-all .tres-icons hr {
     border-color: black;
 }
-.contein-all .tres-icons img{
+
+.contein-all .tres-icons img {
     margin-top: 1px;
     max-width: 50px;
 }
-.contein-all .tres-icons li{
+
+.contein-all .tres-icons li {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 /* index-shop btn CENTRO*/
-.index-shop .btn-shop-index{
+.index-shop .btn-shop-index {
     display: flex;
     justify-content: center;
     margin: 15px auto;
 }
-.index-shop .btn-shop-index a{
+
+.index-shop .btn-shop-index a {
     display: inline;
     border: solid 2px;
     border-radius: 10%;
@@ -306,7 +343,7 @@ body{
 }
 
 /* index-shop CARRUSEL */
-.index-shop .carrusel{
+.index-shop .carrusel {
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -315,7 +352,7 @@ body{
 }
 
 /* carrucel btn */
-.index-shop .carrucel-btn-img{
+.index-shop .carrucel-btn-img {
     padding: 0 14px;
     font-size: 3em;
     font-weight: 500;
@@ -326,11 +363,12 @@ body{
     background-color: #33333322
 }
 
-.index-shop .carrucel-left{
+.index-shop .carrucel-left {
     position: relative;
     bottom: 300px;
 }
-.index-shop .carrucel-right{
+
+.index-shop .carrucel-right {
     position: relative;
     bottom: 300px;
     float: right;
@@ -342,69 +380,75 @@ body{
 
 
 /* carrucel cards */
-.index-shop .carrusel .card-contein{
+.index-shop .carrusel .card-contein {
     align-self: center;
     width: 300px;
     flex: 1 0 auto;
     transition: 0.5s ease;
 }
-.index-shop .carrusel .card-contein:hover{
-   transform: scale(1.1);
+
+.index-shop .carrusel .card-contein:hover {
+    transform: scale(1.1);
 }
-.index-shop .carrusel .card-contein *{
+
+.index-shop .carrusel .card-contein * {
     margin: 5px 0px;
 }
 
-.index-shop .carrusel .img-card{
+.index-shop .carrusel .img-card {
     max-height: 250px;
 }
 
 
 .index-shop .carrusel .card-from,
-.index-shop .carrusel .card-point{
+.index-shop .carrusel .card-point {
     display: none;
 }
-.index-shop .carrusel .precio-contein-carrucel{
+
+.index-shop .carrusel .precio-contein-carrucel {
     margin: 0 auto;
     font-weight: 600;
     color: #660404;
 }
 
-.index-shop .carrusel .precio-contein-carrucel span{
+.index-shop .carrusel .precio-contein-carrucel span {
     display: inline;
 }
 
 
-.index-shop .carrusel .carrucel-carro-contein{
+.index-shop .carrusel .carrucel-carro-contein {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: 0.5s ease;
 }
-.index-shop .carrusel .carrucel-carro-contein:hover::after{
+
+.index-shop .carrusel .carrucel-carro-contein:hover::after {
     content: "Añadir al carrito";
     margin-left: 10px;
 }
 
 
 
-.index-shop .carrucel-carro-contein:hover{
+.index-shop .carrucel-carro-contein:hover {
     background-color: #e27171ad;
     font-size: 1.2em;
     padding: 2px;
 }
-.index-shop .carrucel-carro-contein .carro-carrucel-img{
+
+.index-shop .carrucel-carro-contein .carro-carrucel-img {
     max-width: 30px;
 }
 
 
 /* LOADING  */
-.index-shop .loadin{
+.index-shop .loadin {
     text-align: center;
     margin-top: 3%;
 }
-.index-shop .loadin-obj{
+
+.index-shop .loadin-obj {
     width: 48px;
     height: 48px;
     border: 5px solid;
@@ -424,6 +468,7 @@ body{
     color: #fff;
     font-family: Arial, sans-serif;
 }
+
 .footer .footer-contein {
     max-width: 1360px;
     width: 95vw;
@@ -506,10 +551,11 @@ body{
 /* ========================= 
         TEMPLATE 
 =========================*/
-.card-contein{
+.card-contein {
     text-align: center;
 }
-.img-card{
+
+.img-card {
     max-height: 300px;
     min-height: 250px;
 }
@@ -529,7 +575,7 @@ body{
     margin: 30px 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-    
+
 .container-contact .columna {
     float: left;
     width: 50%;
@@ -543,7 +589,7 @@ body{
     clear: both;
 }
 
-.container-contact .row-contein .contact-map{
+.container-contact .row-contein .contact-map {
     max-width: 100%;
 }
 
@@ -582,47 +628,18 @@ body{
     margin-right: 10px;
 }
 
-.container-contact .icon-contact .fa{
+.container-contact .icon-contact .fa {
     margin: 2vw;
     max-width: 40px;
     max-height: 40px;
 }
 
 .container-contact .contact-title {
-/*  */
+    /*  */
 }
 
 
-@media only screen and (max-width: 900px) {
 
-    /*3 Icons*/
-    .contein-all .tres-icons {
-        margin: 10px;
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-        font-size: 0.5em;
-    }
-
-    .contein-all .tres-icons hr {
-        border-color: black;
-    }
-
-    .contein-all .tres-icons img {
-        margin-top: 1px;
-        max-width: 30px;
-    }
-
-    .contein-all .tres-icons li {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .img-icons {}
-
-}
-    
 
 
 
@@ -664,14 +681,16 @@ body{
     color: black;
 } */
 
-* Barra de navegación de vinos */
+/* Barra de navegación de vinos */
 .nav-wins {
     background-color: #f5f5f5;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     margin: 0;
-    position: relative; /* Asegura que no se solape con otros elementos */
-    z-index: 10; /* Coloca la barra encima de otros elementos si es necesario */
+    position: relative;
+    /* Asegura que no se solape con otros elementos */
+    z-index: 1;
+    /* Coloca la barra encima de otros elementos si es necesario */
 }
 
 .nav-wins .list-wins {
@@ -708,7 +727,8 @@ body{
 }
 
 .nav-wins .list-wins li a:hover {
-    color: #660404; /* Color destacado al pasar el mouse */
+    color: #660404;
+    /* Color destacado al pasar el mouse */
 }
 
 
@@ -717,11 +737,12 @@ body{
 
 
 /* LOADING  */
-.contein-shop .slider-shop .loadin{
+.contein-shop .slider-shop .loadin {
     text-align: center;
     margin-top: 10%;
 }
-.contein-shop .slider-shop .loadin-obj{
+
+.contein-shop .slider-shop .loadin-obj {
     width: 48px;
     height: 48px;
     border: 5px solid;
@@ -731,10 +752,12 @@ body{
     box-sizing: border-box;
     animation: rotacion 1s linear infinite;
 }
+
 @keyframes rotacion {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -742,60 +765,66 @@ body{
 
 
 /* Contein API */
-.contein-shop .slider-shop .contein-primary{
+.contein-shop .slider-shop .contein-primary {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1em;
     row-gap: 2em;
     padding: 10px 15px;
 }
 
 /* cards */
-.contein-shop .contein-primary .card-contein{
+.contein-shop .contein-primary .card-contein {
     align-self: center;
     max-width: 300px;
     flex: 1 0 auto;
     transition: 0.3s;
 }
-.contein-shop .contein-primary .card-contein:hover{
+
+.contein-shop .contein-primary .card-contein:hover {
     transform: scale(1.05);
 }
-.contein-shop .contein-primary .card-contein *{
+
+.contein-shop .contein-primary .card-contein * {
     margin: 5px 0px;
 }
+
 .contein-shop .contein-primary .card-from,
-.contein-shop .contein-primary .card-point{
+.contein-shop .contein-primary .card-point {
     display: none;
 }
-.contein-shop .contein-primary .precio-contein-carrucel{
+
+.contein-shop .contein-primary .precio-contein-carrucel {
     margin: 0 auto;
     font-weight: 600;
     color: #660404;
 }
 
-.contein-shop .contein-primary .precio-contein-carrucel span{
+.contein-shop .contein-primary .precio-contein-carrucel span {
     display: inline;
 }
 
 
-.contein-shop .contein-primary .carrucel-carro-contein{
+.contein-shop .contein-primary .carrucel-carro-contein {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: 0.3s linear;
 }
-.contein-shop .contein-primary .carrucel-carro-contein:hover::after{
+
+.contein-shop .contein-primary .carrucel-carro-contein:hover::after {
     content: "Añadir al carrito";
     margin-left: 10px;
 }
 
-.contein-shop .contein-primary .carrucel-carro-contein:hover{
+.contein-shop .contein-primary .carrucel-carro-contein:hover {
     background-color: #e27171ad;
     font-size: 1.2em;
     padding: 2px;
 }
-.contein-shop .contein-primary .carrucel-carro-contein .carro-carrucel-img{
+
+.contein-shop .contein-primary .carrucel-carro-contein .carro-carrucel-img {
     max-width: 30px;
 }
 
@@ -803,7 +832,7 @@ body{
 
 
 /* VINOS OFF */
-.vinos-off-contein{
+.vinos-off-contein {
     margin: 0 auto;
     padding: 0 0 10px 0;
     /* border-radius: 50px; */
@@ -811,13 +840,15 @@ body{
     /* background-color: rgba(150, 149, 149, 0.3); */
     /* background-color: #d1d0d4; */
 }
-.vinooff-title{
-    text-align: center ;
+
+.vinooff-title {
+    text-align: center;
     padding: 1px 0;
     font-size: 2em;
     color: #660404;
 }
-.vinos-off-contein #vinosEnoff{
+
+.vinos-off-contein #vinosEnoff {
     padding-top: 20px;
     display: flex;
     flex-direction: row;
@@ -826,7 +857,7 @@ body{
 }
 
 
-.vinos-off-contein .vinoEnoff{
+.vinos-off-contein .vinoEnoff {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -835,28 +866,111 @@ body{
     font-size: 0.9em;
 }
 
-.vinos-off-contein .vinoEnoff .img-vino-off{
+.vinos-off-contein .vinoEnoff .img-vino-off {
     height: 150px;
     width: auto;
     align-self: center;
 }
 
-.vinos-off-contein .vinoEnoff .nombre-vino-off{
+.vinos-off-contein .vinoEnoff .nombre-vino-off {
     max-width: 300px;
     font-weight: 500;
 }
 
-.vinos-off-contein .vinoEnoff .vineria-vino-off{
+.vinos-off-contein .vinoEnoff .vineria-vino-off {
     /* max-width: 100px; */
     font-style: italic;
 
 }
-.vinos-off-contein .vinoEnoff .origen-vino-off{
+
+.vinos-off-contein .vinoEnoff .origen-vino-off {
     display: none;
 }
-.vinos-off-contein .vinoEnoff .rating-vino-off{
+
+.vinos-off-contein .vinoEnoff .rating-vino-off {
     display: none;
 }
-.vinos-off-contein .vinoEnoff .precio-vino-off{
+
+.vinos-off-contein .vinoEnoff .precio-vino-off {
     color: rgb(97, 45, 45);
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .header .title-secction .logo-and-title .title {
+        padding-top: 0%;
+        text-align: left;
+        font-size: 3em;
+        letter-spacing: 8px;
+    }
+
+    /* nav */
+    .header .list-main {
+        font-size: 0.8em;
+    }
+
+    /* CARRITO */
+    .header .title-secction .carrito-section-head {
+        float: right;
+        margin: 40px 10px 0 0;
+        gap: 10px;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /*3 Icons*/
+    .contein-all .tres-icons {
+        margin: 5px 1px;
+        font-size: 0.5em;
+    }
+
+    .contein-all .tres-icons hr {
+        display: none;
+    }
+
+    .contein-all .tres-icons img {
+        margin-top: 1px;
+        max-width: 30px;
+    }
+
+    .contein-all .tres-icons li {
+        gap: 10px;
+    }
+
+    .img-icons {}
+
+    /* ----------SHOP ------------ */
+
+    /* Barra de navegación de vinos */
+    .nav-wins {
+        padding: 5px 0;
+        z-index: 1;
+        width: 95vw;
+    }
+
+    .nav-wins .list-wins {
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-wins .list-wins li {
+        flex: 0;
+        padding: 3px;
+        transition: none;
+    }
+
+    .nav-wins .list-wins li a {
+        text-decoration: none;
+        font-size: 0.6rem;
+        font-weight: 300;
+    }
+
+    .nav-wins .list-wins li:hover {
+        transform: none;
+    }
+
+
 }

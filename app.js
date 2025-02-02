@@ -1,17 +1,17 @@
 window.addEventListener('load', () => {
-    // const url = 'https://api.sampleapis.com/wines/reds';
-    fetchData();
+    const url = './app/api/wines.json';
+    fetchData(url);
 });
 
 
 
-/* const url = 'https://api.sampleapis.com/wines/reds';
+const url = './app/api/wines.json';
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchData(url) //carga primero el documento
 })
- */
+
 
 const cardPrimary = document.getElementById('cardPrimary');// Card primary template
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
@@ -33,10 +33,10 @@ const seleccionVinos = [];
 const datosArray = []
 
 
-const fetchData = async() =>{
+const fetchData = async(url) =>{
     try {
         loading(true) // Cargando...
-        const res = await fetch('./app/api/wines.json');
+        const res = await fetch(url);
         const data = await res.json();
         datos(data.reds) //datos
         datosArray.push(data)
