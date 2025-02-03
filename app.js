@@ -1,18 +1,3 @@
-window.addEventListener('load', () => {
-    const url = './app/api/wines.json';
-    fetchData(url);
-});
-
-
-
-const url = './app/api/wines.json';
-
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    fetchData(url) //carga primero el documento
-})
-
-
 const cardPrimary = document.getElementById('cardPrimary');// Card primary template
 const carrucel = document.getElementById('carrucel'); //contein CARRUCEL
 const btnCarrucelLeft = document.getElementById('btnCarrucelLeft');//btn carrucel izq
@@ -32,83 +17,6 @@ const seleccionVinos = [];
 
 const datosArray = []
 
-
-const fetchData = async(url) =>{
-    try {
-        loading(true) // Cargando...
-        const res = await fetch(url);
-        const data = await res.json();
-        datos(data.reds) //datos
-        datosArray.push(data)
-    } catch (error) {
-        console.log(error)
-    } finally{
-        loading(false) // no display Cargando...
-    }  
-}
-
-
-// Verifica el ancho de la imagen
-function getImageWidth(imageUrl) {
-    const img = new Image();
-    img.src = imageUrl;
-    return img.width;
-}
-
-//Numero aleatorio
-function numAleatorio() {
-    min = Math.ceil(400000);
-    max = Math.floor(1000000);
-    return (Math.floor(Math.random() * (max - min) + min));
-}
-
-// DATA -->api
-const datos = (data) => {
-    const fragment = document.createDocumentFragment();
-    const fragmentDos = document.createDocumentFragment();
-    
-    // Seleccionar vinos en el off 20-24
-    const vinosEnoff = data.slice(16, 20);
-    // Mostrar las características de los vinos en el off en un div aparte
-    mostrarVinosEnoff(vinosEnoff);
-
-    const isImageValid = (url) => {
-        // Verifica si la extensión es .png
-        return /\.png$/i.test(url);
-    };
-    data.forEach(element => {
-        const point = element.rating.average;
-        const clone = template.cloneNode(true);
-        const cloneDos = template.cloneNode(true);
-        const imgWidth = getImageWidth(element.image);
-
-        if (imgWidth >= 60 && imgWidth <= 100 && isImageValid(element.image)) {
-            // Clon Shop
-            clone.getElementById('cardImg').setAttribute("src", element.image);
-            clone.getElementById('cardTitle').textContent = element.wine;
-            clone.getElementById('cardVineria').textContent = element.winery;
-            clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-            clone.getElementById('cardRating').textContent = `Rating: ${point}`;
-            clone.getElementById('carrucelPrecio').textContent =`${Intl.NumberFormat().format(numAleatorio())}`;
-
-            // CLON CARRUSEL
-            cloneDos.getElementById('cardImg').setAttribute("src", element.image);
-            cloneDos.getElementById('cardTitle').textContent = element.wine;
-            cloneDos.getElementById('cardVineria').textContent = element.winery;
-            cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-            cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-            cloneDos.getElementById('carrucelPrecio').textContent =`${Intl.NumberFormat().format(numAleatorio())}`;
-            // Fragment
-            fragment.appendChild(clone);
-            fragmentDos.appendChild(cloneDos);
-        }
-    });
-
-    conteinPrimary.appendChild(fragment);
-    carrucel.appendChild(fragmentDos);
-};
-
-
 //Cargando....  
 const loading = (estado) =>{
     //const btnCarrucelLR = document.getElementById('btnCarrucelLR')
@@ -126,6 +34,98 @@ const loading = (estado) =>{
         btnCarrucelRight.classList.remove('display-none');
     }
 }
+loading(true); // Mostrar loadinf
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const url = './app/api/wines.json';
+    fetchData(url);
+});
+
+
+
+const fetchData = async (url) => {
+    try {
+        loading(true); // Mostrar loadinf
+        const res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Error al cargar los datos: ${res.status}`);
+        }
+        const data = await res.json();
+        datos(data.reds); // DATOS
+        datosArray.push(data);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        // loading(false); 
+        // Ocultar Loading
+    }
+};
+
+
+// Verifica el ancho de la imagen
+function getImageWidth(imageUrl) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = imageUrl;
+        img.onload = () => resolve(img.width);
+        img.onerror = () => reject(new Error(`Error al cargar la imagen: ${imageUrl}`));
+    });
+}
+//Numero aleatorio
+function numAleatorio() {
+    min = Math.ceil(400000);
+    max = Math.floor(1000000);
+    return (Math.floor(Math.random() * (max - min) + min));
+}
+
+// DATA -->api
+const datos = async (data) => {
+    const fragment = document.createDocumentFragment();
+    const fragmentDos = document.createDocumentFragment();
+
+    for (const element of data) {
+        const point = element.rating.average;
+        const clone = template.cloneNode(true);
+        const cloneDos = template.cloneNode(true);
+
+        try {
+            // Verificar el ancho de la imagen
+            const imgWidth = await getImageWidth(element.image);
+            if (imgWidth >= 60 && imgWidth <= 100 && /\.png$/i.test(element.image)) {
+                // Configurar clon principal
+                clone.getElementById('cardImg').setAttribute("src", element.image);
+                clone.getElementById('cardTitle').textContent = element.wine;
+                clone.getElementById('cardVineria').textContent = element.winery;
+                clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+                clone.getElementById('cardRating').textContent = `Rating: ${point}`;
+                clone.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
+
+                // Configurar clon del carrusel
+                cloneDos.getElementById('cardImg').setAttribute("src", element.image);
+                cloneDos.getElementById('cardTitle').textContent = element.wine;
+                cloneDos.getElementById('cardVineria').textContent = element.winery;
+                cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+                cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
+                cloneDos.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
+
+                // Agregar clones a los fragmentos
+                fragment.appendChild(clone);
+                fragmentDos.appendChild(cloneDos);
+            }
+        } catch (error) {
+            console.error(error); // Manejar errores de carga de imágenes
+        }
+    }
+
+    // Agregar fragmentos al DOM
+    conteinPrimary.appendChild(fragment);
+    carrucel.appendChild(fragmentDos);
+    loading(false); 
+};
+
+
+
 
 //CARRUSEL - play
 function autoScroll() {
@@ -135,7 +135,6 @@ function autoScroll() {
     return interval;
 } 
 
-let interval = autoScroll();
 
 //CARRUSEL - STOP
 carrucel.addEventListener('mouseover', () => {
@@ -154,6 +153,7 @@ btnCarrucelRight.addEventListener('click', ()=>{
     carrucel.scrollLeft = carrucel.scrollLeft + 100;
 })
 
+let interval = autoScroll();
 
 // CARRO index Añadir
 carrucel.addEventListener('click', (e) => {
@@ -314,7 +314,7 @@ conteinPrimary.addEventListener('click', (e) => {
 
 
 // caractersticas de los vinos en el off
-function mostrarVinosEnoff(vinos) {
+/* function mostrarVinosEnoff(vinos) {
     const divVinosEnoff = document.getElementById('vinosEnoff');
 
     // Limpiar contenido anterior
@@ -339,4 +339,4 @@ function mostrarVinosEnoff(vinos) {
         // Agregar el div del vino en el off al contenedor principal
         divVinosEnoff.appendChild(divVino);
     });
-}
+} */
