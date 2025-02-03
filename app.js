@@ -15,38 +15,39 @@ const conteinPrimary = document.getElementById('conteinPrimary');// SHOP api
 const carroShop = [];
 const seleccionVinos = [];
 
-const datosArray = []
+const datosArray = [];
 
 //Cargando....  
 const loading = (estado) =>{
     //const btnCarrucelLR = document.getElementById('btnCarrucelLR')
     const loading = document.getElementById('loading')
     if (estado) {
-        conteinPrimary.classList.add('display-none');
-        btnCarrucelLeft.classList.add('display-none');
-        btnCarrucelRight.classList.add('display-none');
-        loading.classList.remove('display-none');
+        // conteinPrimary.classList.add('display-none');
+        // btnCarrucelLeft.classList.add('display-none');
+        // btnCarrucelRight.classList.add('display-none');
+        // loading.classList.remove('display-none');
 
     } else {
-        conteinPrimary.classList.remove('display-none');
+        // conteinPrimary.classList.remove('display-none');
         loading.classList.add('display-none');
-        btnCarrucelLeft.classList.remove('display-none');
-        btnCarrucelRight.classList.remove('display-none');
+        // btnCarrucelLeft.classList.remove('display-none');
+        // btnCarrucelRight.classList.remove('display-none');
     }
 }
-loading(true); // Mostrar loadinf
-
 
 document.addEventListener('DOMContentLoaded', () => {
+    loading(true); // Mostrar loadinf
+
     const url = './app/api/wines.json';
     fetchData(url);
+    
+   
 });
 
 
 
 const fetchData = async (url) => {
     try {
-        loading(true); // Mostrar loadinf
         const res = await fetch(url);
         if (!res.ok) {
             throw new Error(`Error al cargar los datos: ${res.status}`);
@@ -57,21 +58,18 @@ const fetchData = async (url) => {
     } catch (error) {
         console.error(error);
     } finally {
-        // loading(false); 
-        // Ocultar Loading
+        loading(false); // Ocultar Loading
     }
 };
 
 
 // Verifica el ancho de la imagen
 function getImageWidth(imageUrl) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = imageUrl;
-        img.onload = () => resolve(img.width);
-        img.onerror = () => reject(new Error(`Error al cargar la imagen: ${imageUrl}`));
-    });
+    const img = new Image();
+    img.src = imageUrl;
+    return img.width;
 }
+
 //Numero aleatorio
 function numAleatorio() {
     min = Math.ceil(400000);
@@ -80,48 +78,48 @@ function numAleatorio() {
 }
 
 // DATA -->api
-const datos = async (data) => {
+const datos = (data) => {
     const fragment = document.createDocumentFragment();
     const fragmentDos = document.createDocumentFragment();
+    
+    // Seleccionar vinos en el off 20-24
+    // const vinosEnoff = data.slice(16, 20);
+    // Mostrar las características de los vinos en el off en un div aparte
+    // mostrarVinosEnoff(vinosEnoff);
 
-    for (const element of data) {
+   /*  const isImageValid = (url) => {
+        // Verifica si la extensión es .png
+        return /\.png$/i.test(url);
+    }; */
+    data.forEach(element => {
         const point = element.rating.average;
         const clone = template.cloneNode(true);
         const cloneDos = template.cloneNode(true);
+        if(element.image){
+            clone.getElementById('cardImg').setAttribute("src", element.image);
+            clone.getElementById('cardTitle').textContent = element.wine;
+            clone.getElementById('cardVineria').textContent = element.winery;
+            clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+            clone.getElementById('cardRating').textContent = `Rating: ${point}`;
+            clone.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
 
-        try {
-            // Verificar el ancho de la imagen
-            const imgWidth = await getImageWidth(element.image);
-            if (imgWidth >= 60 && imgWidth <= 100 && /\.png$/i.test(element.image)) {
-                // Configurar clon principal
-                clone.getElementById('cardImg').setAttribute("src", element.image);
-                clone.getElementById('cardTitle').textContent = element.wine;
-                clone.getElementById('cardVineria').textContent = element.winery;
-                clone.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-                clone.getElementById('cardRating').textContent = `Rating: ${point}`;
-                clone.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
+            // Configurar clon del carrusel
+            cloneDos.getElementById('cardImg').setAttribute("src", element.image);
+            cloneDos.getElementById('cardTitle').textContent = element.wine;
+            cloneDos.getElementById('cardVineria').textContent = element.winery;
+            cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
+            cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
+            cloneDos.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
 
-                // Configurar clon del carrusel
-                cloneDos.getElementById('cardImg').setAttribute("src", element.image);
-                cloneDos.getElementById('cardTitle').textContent = element.wine;
-                cloneDos.getElementById('cardVineria').textContent = element.winery;
-                cloneDos.getElementById('cardFrom').textContent = `Origen: ${element.location}`;
-                cloneDos.getElementById('cardRating').textContent = `Rating: ${point}`;
-                cloneDos.getElementById('carrucelPrecio').textContent = `${Intl.NumberFormat().format(numAleatorio())}`;
-
-                // Agregar clones a los fragmentos
-                fragment.appendChild(clone);
-                fragmentDos.appendChild(cloneDos);
-            }
-        } catch (error) {
-            console.error(error); // Manejar errores de carga de imágenes
+            // Agregar clones a los fragmentos
+            fragment.appendChild(clone);
+            fragmentDos.appendChild(cloneDos);
         }
-    }
+            
+    });
 
-    // Agregar fragmentos al DOM
     conteinPrimary.appendChild(fragment);
     carrucel.appendChild(fragmentDos);
-    loading(false); 
 };
 
 
