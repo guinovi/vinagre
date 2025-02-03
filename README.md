@@ -9,12 +9,6 @@ Bienvenido a **La Vinagreta**, una aplicación web para comprar vinos en línea,
 - **JavaScript (Vanilla JS)**
 - **API de Vinos** (https://api.sampleapis.com)
 
-## Funcionalidades
-
-- 🔍 **Búsqueda de Vinos**: Busca vinos por nombre, tipo, o región.
-- 🛒 **Carrito de Compras**: Añade y gestiona productos en el carrito de compras.
-- 📦 **Vista de Detalles**: Consulta detalles específicos de cada vino.
-
 ## Instalación
 
 1. **Clona el repositorio**:
